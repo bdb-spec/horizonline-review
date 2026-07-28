@@ -607,10 +607,15 @@
 
 <script>
   (function(){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    },{threshold:.1,rootMargin:'0px 0px -6% 0px'});
-    document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
+    var fades=document.querySelectorAll('.fade');
+    if(!('IntersectionObserver' in window)){
+      fades.forEach(function(el){el.classList.add('in')});
+    } else {
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+      },{threshold:0,rootMargin:'0px 0px -6% 0px'});
+      fades.forEach(function(el){io.observe(el)});
+    }
     var o=document.querySelector('.o-sun'),rule=document.querySelector('.horizon-rule'),lk=document.querySelector('.lockup');
     if(o&&rule&&lk){
       var lr=lk.getBoundingClientRect(),or=o.getBoundingClientRect();
