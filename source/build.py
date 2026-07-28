@@ -14,6 +14,7 @@ M = {
  "__LIB_BREAKOUT__":"lib-breakout.jpg","__LIB_DARKTRUTH__":"lib-darktruth.jpg","__LIB_FIGHTINGMAN__":"lib-fightingman.jpg",
  "__LIB_COMEBACK__":"lib-comeback.jpg","__LIB_BIGWEDDING__":"lib-bigwedding.jpg","__LIB_MYMOM__":"lib-mymom.jpg",
  "__LIB_CLEANER__":"lib-cleaner.jpg","__LIB_BLONDE__":"lib-blonde.jpg","__LIB_POISONROSE__":"lib-poisonrose.jpg","__LIB_HEARTSOFWAR__":"lib-heartsofwar.jpg",
+ "__LIB_ICEGIRLS__":"lib-icegirls.jpg",
 }
 for k, f in M.items():
     t = t.replace(k, "data:image/jpeg;base64," + base64.b64encode((web / f).read_bytes()).decode())
