@@ -67,28 +67,39 @@
   .lockup{position:relative;display:inline-block}
   .wordmark{position:relative;z-index:4;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;
       font-size:clamp(30px,9vw,120px);line-height:1;color:#f4efe6;text-shadow:0 2px 46px rgba(0,0,0,.6)}
-  .wm-l{opacity:0;display:inline-block;animation:wmark 1.1s cubic-bezier(.16,1,.3,1) 1.05s forwards}
-  @keyframes wmark{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .wm-l{opacity:0;display:inline-block;animation:wlit 1.9s ease .55s forwards}
+  @keyframes wlit{
+    0%{opacity:0;filter:brightness(.45) sepia(.4)}
+    30%{opacity:.3;filter:brightness(.5) sepia(.45)}
+    70%{opacity:.62;filter:brightness(.75) sepia(.2)}
+    100%{opacity:1;filter:none}}
+  .o-port{display:inline-block;clip-path:inset(-200% -60% 45% -60%);animation:oport .5s ease 1.55s forwards}
+  @keyframes oport{to{clip-path:inset(-200% -60% -60% -60%)}}
   .o-sun{position:relative;display:inline-block;text-shadow:none;color:transparent;
       background:linear-gradient(#e9d2a2,var(--brass-bright) 55%,var(--brass));-webkit-background-clip:text;background-clip:text;
-      filter:drop-shadow(0 0 22px rgba(216,186,134,.38));
-      opacity:0;transform:translateY(.3em);animation:osun 1.5s cubic-bezier(.16,1,.3,1) .25s forwards}
-  @keyframes osun{from{opacity:0;transform:translateY(.3em)}to{opacity:1;transform:none}}
+      transform:translateY(.62em);filter:brightness(.5) drop-shadow(0 0 12px rgba(216,186,134,.14));
+      animation:osun 1.7s cubic-bezier(.4,.1,.2,1) .3s forwards}
+  @keyframes osun{
+    0%{transform:translateY(.62em);filter:brightness(.5) drop-shadow(0 0 12px rgba(216,186,134,.14))}
+    55%{filter:brightness(.78) drop-shadow(0 0 18px rgba(216,186,134,.26))}
+    100%{transform:none;filter:brightness(1) drop-shadow(0 0 24px rgba(216,186,134,.4))}}
   .o-sun::before{content:"";position:absolute;inset:-22%;z-index:-1;border-radius:50%;
       background:radial-gradient(circle,rgba(216,186,134,.22),transparent 66%);
-      opacity:0;animation:halo 1.6s ease 1.5s forwards}
+      opacity:0;animation:halo 1.4s ease 1.75s forwards}
   @keyframes halo{to{opacity:1}}
+  .hc-lead,.hc-mid,.hc-lead2,.hero-stats{opacity:0;animation:copyfade .9s ease 2.3s forwards}
+  @keyframes copyfade{to{opacity:1}}
   .horizon-rule{position:absolute;top:55%;left:50%;width:100vw;height:2px;z-index:3;transform-origin:var(--sunx,50%) center;
       transform:translate(-50%,-50%) scaleX(0);
       background:linear-gradient(90deg,transparent,var(--brass) calc(var(--sunx,50vw) - 32vw),var(--brass-bright) var(--sunx,50vw),var(--brass) calc(var(--sunx,50vw) + 32vw),transparent);
-      box-shadow:0 0 22px 0 rgba(194,160,106,.32);animation:hrule 1.2s cubic-bezier(.16,1,.3,1) .35s forwards}
+      box-shadow:0 0 22px 0 rgba(194,160,106,.32);animation:hrule 1.4s cubic-bezier(.16,1,.3,1) .75s forwards}
   @keyframes hrule{
     0%{transform:translate(-50%,-50%) scaleX(0);box-shadow:0 0 40px 2px rgba(194,160,106,.55)}
     70%{box-shadow:0 0 40px 2px rgba(194,160,106,.55)}
     100%{transform:translate(-50%,-50%) scaleX(1);box-shadow:0 0 22px 0 rgba(194,160,106,.32)}}
   .horizon-rule::after{content:"";position:absolute;top:-2px;bottom:-2px;width:140px;left:-12%;opacity:0;
       background:linear-gradient(90deg,transparent,rgba(255,246,228,.85),transparent);
-      animation:glint 1.15s ease-in-out 1.7s forwards}
+      animation:glint 1.15s ease-in-out 2.45s forwards}
   @keyframes glint{0%{left:-12%;opacity:0}18%{opacity:.85}82%{opacity:.85}100%{left:104%;opacity:0}}
   .hc-lead{font-family:var(--sans);text-transform:uppercase;letter-spacing:.12em;font-weight:400;
       font-size:clamp(13px,1.9vw,17px);color:#d8d2c8;max-width:40ch;margin:34px auto 0;line-height:1.85}
@@ -245,9 +256,11 @@
   @media(prefers-reduced-motion:reduce){
     .horizon-rule{animation:none;transform:translate(-50%,-50%) scaleX(1)}
     .horizon-rule::after{animation:none;opacity:0}
-    .wm-l{animation:none;opacity:1;transform:none}
-    .o-sun{animation:none;opacity:1;transform:none}
+    .wm-l{animation:none;opacity:1;filter:none}
+    .o-port{animation:none;clip-path:none}
+    .o-sun{animation:none;transform:none;filter:brightness(1) drop-shadow(0 0 24px rgba(216,186,134,.4))}
     .o-sun::before{animation:none;opacity:1}
+    .hc-lead,.hc-mid,.hc-lead2,.hero-stats{animation:none;opacity:1}
     .fade{opacity:1;transform:none;transition:none}
     html{scroll-behavior:auto}
   }
@@ -271,7 +284,7 @@
   <div class="grain"></div>
   <div class="hero-in">
     <div class="lockup">
-      <h1 class="wordmark"><span class="wm-l">Horiz</span><span class="o-sun">o</span><span class="wm-l">n Line</span></h1>
+      <h1 class="wordmark"><span class="wm-l">Horiz</span><span class="o-port"><span class="o-sun">o</span></span><span class="wm-l">n Line</span></h1>
       <div class="horizon-rule"></div>
     </div>
     <p class="hc-lead">A company that develops finances produces feature films and television series</p>
