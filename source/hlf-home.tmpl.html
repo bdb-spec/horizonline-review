@@ -1,0 +1,515 @@
+<title>Horizon Line Film Company</title>
+<style>
+  :root{
+    --ground:#0b0a09;
+    --ground-2:#0f0d0b;
+    --panel:#131210;
+    --ink:#ece6da;
+    --ink-soft:#b6ae9f;
+    --ink-faint:#7c7568;
+    --rule:rgba(236,230,218,.12);
+    --rule-strong:rgba(236,230,218,.22);
+    --brass:#c2a06a;
+    --brass-bright:#d8ba86;
+    --brass-dim:rgba(194,160,106,.38);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+    --edge:clamp(20px,5.5vw,64px);
+    --maxw:1200px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--edge);padding-right:var(--edge)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--brass)}
+  .tk{color:var(--brass-bright);font-style:italic;border-bottom:1px dashed var(--brass-dim);padding:0 2px}
+  .tk-tag{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#1a1206;background:var(--brass);padding:2px 6px;border-radius:2px;vertical-align:middle;margin-left:8px}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,10,9,.72);
+      backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:15px var(--edge);display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .nav-mark{font-family:var(--serif);font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+  .nav-mark b{color:var(--brass);font-weight:600}
+  .nav-links{display:flex;gap:30px}
+  .nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);transition:color .25s}
+  .nav-links a:hover{color:var(--brass)}
+  @media(max-width:680px){.nav-links{display:none}}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+      background:radial-gradient(82% 62% at 50% 42%,#141210 0%,var(--ground) 68%)}
+  .hero-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(56% 42% at 50% 47%,rgba(194,160,106,.08),transparent 70%)}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(130% 105% at 50% 50%,transparent 52%,rgba(0,0,0,.55) 100%)}
+  .grain{position:absolute;inset:0;opacity:.05;pointer-events:none;mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .hero-in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:120px var(--edge) 64px;
+      display:flex;flex-direction:column;align-items:center;text-align:center}
+  .lockup{position:relative;display:inline-block}
+  .wordmark{font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;
+      font-size:clamp(30px,9vw,120px);line-height:1;color:#f4efe6;text-shadow:0 2px 46px rgba(0,0,0,.6);
+      opacity:0;animation:wmark 1s ease .55s forwards}
+  @keyframes wmark{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .horizon-rule{position:absolute;top:55%;left:50%;width:100vw;height:2px;z-index:3;transform-origin:center;
+      transform:translate(-50%,-50%) scaleX(0);
+      background:linear-gradient(90deg,transparent,var(--brass) 18%,var(--brass-bright) 50%,var(--brass) 82%,transparent);
+      box-shadow:0 0 34px 1px rgba(194,160,106,.5);animation:hrule 1.3s cubic-bezier(.16,1,.3,1) .35s forwards}
+  @keyframes hrule{to{transform:translate(-50%,-50%) scaleX(1)}}
+  .hc-lead{font-family:var(--sans);text-transform:uppercase;letter-spacing:.12em;font-weight:400;
+      font-size:clamp(13px,1.9vw,17px);color:#d8d2c8;max-width:40ch;margin:34px auto 0;line-height:1.85}
+  .hc-mid{text-transform:uppercase;letter-spacing:.34em;font-size:11px;color:var(--brass);margin:22px 0 0;font-weight:500}
+  .hc-lead2{text-transform:uppercase;letter-spacing:.16em;font-size:clamp(11px,1.6vw,14px);color:var(--ink-soft);margin-top:14px;line-height:1.7}
+  .hero-stats{margin-top:36px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 18px;
+      font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+  .hs-dot{width:3px;height:3px;border-radius:50%;background:var(--brass)}
+  .scroll-cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;
+      font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);
+      display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scroll-cue span{width:1px;height:34px;background:linear-gradient(var(--brass),transparent)}
+
+  /* SECTION SCAFFOLD */
+  section{padding:clamp(64px,10vw,120px) 0;position:relative}
+  .sec-head{display:flex;flex-direction:column;gap:16px;max-width:64ch}
+  .sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4.4vw,46px);line-height:1.05;letter-spacing:-.015em;text-wrap:balance}
+  .sec-head p{color:var(--ink-soft);font-size:clamp(16px,2vw,18px);line-height:1.6;max-width:58ch}
+  .fade{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .fade.in{opacity:1;transform:none}
+
+  /* CREDIBILITY BAND */
+  .band{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--ground-2)}
+  .band-in{max-width:var(--maxw);margin:0 auto;padding:24px var(--edge);display:flex;flex-wrap:wrap;
+      align-items:center;justify-content:center;gap:14px 30px;
+      font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+  .band-in .dot{width:3px;height:3px;border-radius:50%;background:var(--brass)}
+
+  /* THE SLATE */
+  .slate-groups{display:flex;flex-direction:column;gap:52px;margin-top:48px}
+  .slate-status-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--rule-strong);margin-bottom:24px}
+  .slate-status-row h3{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+  .slate-count{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.08em}
+  .slate-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:900px){.slate-cards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.slate-cards{grid-template-columns:1fr}}
+  .sfilm{background:var(--ground);border:1px solid var(--rule);display:flex;flex-direction:column;overflow:hidden;transition:border-color .3s}
+  .sfilm:hover{border-color:var(--brass-dim)}
+  .sfilm-art{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--ground-2)}
+  .sfilm-art img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+  .sfilm:hover .sfilm-art img{transform:scale(1.05)}
+  .sfilm-art .status{position:absolute;top:10px;left:10px;z-index:3;font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;
+      text-transform:uppercase;color:#f2ede3;background:rgba(0,0,0,.42);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);padding:3px 8px;border-radius:2px}
+  .sfilm-art.noart{display:flex;flex-direction:column;justify-content:flex-end;padding:16px;
+      background:radial-gradient(135% 105% at 50% 26%,#18140f,#0c0b09)}
+  .sfilm-art.noart::before{content:"";position:absolute;top:40%;left:16px;width:46px;height:1px;background:var(--brass-dim)}
+  .sfilm-art.noart .ph-title{position:relative;z-index:2;font-family:var(--serif);font-size:21px;font-weight:600;color:#ece6da;line-height:1.12;letter-spacing:.01em}
+  .sfilm-art.art-title img{object-position:center 25%}
+  .sfilm-art.art-title::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(transparent 42%,rgba(0,0,0,.82))}
+  .sfilm-art.art-title .ph-title{position:absolute;left:16px;right:14px;bottom:13px;z-index:2;font-family:var(--serif);font-size:21px;font-weight:600;color:#ece6da;line-height:1.12;text-shadow:0 2px 12px rgba(0,0,0,.85)}
+  .sfilm-body{padding:15px 18px 18px;display:flex;flex-direction:column;gap:8px}
+  .sfilm-genre{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+  .sfilm-cast{font-size:14.5px;color:var(--ink);font-weight:600;line-height:1.5}
+  .sfilm-log{font-size:13px;color:var(--ink-soft);line-height:1.55;font-family:var(--serif);font-style:italic}
+
+  /* TRACK RECORD (released) */
+  .films{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,26px)}
+  @media(max-width:900px){.films{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.films{grid-template-columns:1fr;max-width:340px;margin-left:auto;margin-right:auto}}
+  .film{display:flex;flex-direction:column;gap:14px}
+  .film-poster{position:relative;aspect-ratio:2/3;overflow:hidden;border:1px solid var(--rule);background:var(--ground-2)}
+  .film-poster img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+  .film:hover .film-poster img{transform:scale(1.05)}
+  .film-poster::after{content:"";position:absolute;inset:0;border:1px solid transparent;transition:border-color .3s}
+  .film:hover .film-poster::after{border-color:var(--brass-dim)}
+  .film h3{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.1}
+  .film .yr{color:var(--ink-faint);font-weight:400;font-size:16px}
+  .film .genre{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--brass);margin-top:-6px}
+  .film .cast{font-size:13px;color:var(--ink-soft);line-height:1.5}
+  .film .press{font-size:12.5px;color:var(--ink-faint);line-height:1.55;border-left:1px solid var(--brass-dim);padding-left:11px}
+  .film .press b{color:var(--ink-soft);font-weight:500}
+  .film .plat{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+  .film .plat span{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);border:1px solid var(--rule);padding:3px 7px;border-radius:2px}
+
+  /* NYT QUOTE */
+  .quote{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--ground-2);text-align:center}
+  .quote-in{max-width:900px;margin:0 auto;padding:clamp(56px,9vw,100px) var(--edge)}
+  .quote blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(22px,3.6vw,36px);line-height:1.4;color:#f0eadf;text-wrap:balance}
+  .quote cite{display:block;margin-top:28px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-style:normal}
+  .quote .ctx{color:var(--ink-faint);letter-spacing:.1em}
+
+  /* STUDIO PRESS */
+  .press-grid{margin-top:44px;display:grid;grid-template-columns:1.05fr .95fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  @media(max-width:760px){.press-grid{grid-template-columns:1fr}}
+  .press-grid>div{background:var(--ground);padding:30px 26px}
+  .press-sub{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:18px}
+  .press-bg p{color:var(--ink-soft);font-size:15px;line-height:1.7;margin-bottom:14px}
+  .press-boiler{margin-top:22px;padding-top:18px;border-top:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:9px 18px}
+  .press-boiler .l{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);padding-top:3px}
+  .press-boiler .v{font-size:14px;color:var(--ink-soft);line-height:1.5}
+  .prlist{list-style:none;display:flex;flex-direction:column}
+  .prlist li{padding:15px 0;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:6px}
+  .prlist li:first-child{padding-top:0}
+  .prlist li:last-child{border-bottom:none}
+  .prlist .d{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass)}
+  .prlist .h{font-size:15.5px;color:var(--ink);line-height:1.5;font-family:var(--serif)}
+  .press-note{margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.03em;line-height:1.6}
+  .mediakit{margin-top:40px;padding-top:26px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 24px}
+  .mediakit h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass)}
+  .mediakit p{color:var(--ink-soft);font-size:14.5px;line-height:1.6;max-width:60ch}
+  .mediakit a{color:var(--brass);border-bottom:1px solid var(--brass-dim)}
+
+  /* LEADERSHIP */
+  .team{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  @media(max-width:760px){.team{grid-template-columns:1fr}}
+  .member{background:var(--ground);padding:30px 26px;display:flex;flex-direction:column;gap:10px;min-height:180px}
+  .member .role{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+  .member h3{font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.1}
+  .member p{font-size:14px;color:var(--ink-soft);line-height:1.6}
+
+  /* CONTACT */
+  .contact{border-top:1px solid var(--rule)}
+  .contact-in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,64px);align-items:end}
+  @media(max-width:680px){.contact-in{grid-template-columns:1fr;gap:34px}}
+  .contact h2{font-family:var(--serif);font-size:clamp(30px,5vw,52px);font-weight:600;line-height:1.02;letter-spacing:-.01em}
+  .contact .email{display:inline-block;margin-top:24px;font-family:var(--serif);font-size:clamp(20px,3vw,28px);color:var(--brass-bright);border-bottom:1px solid var(--brass-dim);padding-bottom:3px;transition:border-color .3s}
+  .contact .email:hover{border-color:var(--brass)}
+  .contact-cols{display:flex;flex-direction:column;gap:18px}
+  .contact-cols .row{display:flex;flex-direction:column;gap:3px}
+  .contact-cols .row .l{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+  .contact-cols .row .v{font-size:14.5px;color:var(--ink-soft)}
+
+  footer{border-top:1px solid var(--rule);padding:34px 0}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;
+      font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-faint)}
+  .foot-in .mk{font-family:var(--serif);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+
+  @media(prefers-reduced-motion:reduce){
+    .horizon-rule{animation:none;transform:translate(-50%,-50%) scaleX(1)}
+    .wordmark{animation:none;opacity:1;transform:none}
+    .fade{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+
+<nav>
+  <div class="nav-in">
+    <div class="nav-mark">Horizon <b>Line</b></div>
+    <div class="nav-links">
+      <a href="#slate">The Slate</a>
+      <a href="#work">Films</a>
+      <a href="#press">Press</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-glow"></div>
+  <div class="grain"></div>
+  <div class="hero-in">
+    <div class="lockup">
+      <h1 class="wordmark">Horizon Line</h1>
+      <div class="horizon-rule"></div>
+    </div>
+    <p class="hc-lead">A company that develops finances produces feature films and television series</p>
+    <p class="hc-mid">Genre spanning</p>
+    <p class="hc-lead2">Building entertainment for global audiences</p>
+    <div class="hero-stats">
+      <span>24 features in post and upcoming</span>
+      <span class="hs-dot"></span>
+      <span>Three upcoming television series</span>
+    </div>
+  </div>
+  <div class="scroll-cue"><span></span>Scroll</div>
+</header>
+
+<!-- CREDIBILITY BAND -->
+<div class="band">
+  <div class="band-in">
+    <span>Apple TV</span><span class="dot"></span>
+    <span>Warner Bros.</span><span class="dot"></span>
+    <span>Red Sea Media</span><span class="dot"></span>
+    <span>Gala Film</span><span class="dot"></span>
+    <span>The New York Times</span>
+  </div>
+</div>
+
+<!-- THE SLATE -->
+<section id="slate">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="eyebrow">The Slate &nbsp;·&nbsp; 2026–2027</span>
+      <h2>Twenty-four features, in post and upcoming.</h2>
+      <p>Multi-genre — action, thriller, horror, comedy, drama — built around established talent and papered before cameras roll.</p>
+    </div>
+
+    <div class="slate-groups">
+
+      <!-- IN POST -->
+      <div class="slate-group fade">
+        <div class="slate-status-row"><h3>In Post-Production</h3><span class="slate-count">8 titles</span></div>
+        <div class="slate-cards">
+          <article class="sfilm">
+            <div class="sfilm-art"><img src="__KA_RUNLOCK__" alt="Run/Lock key art" loading="lazy"><span class="status">In post</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Thriller / Crime</p>
+              <p class="sfilm-cast">Grace Caroline Currey &middot; Kevin Durand</p>
+              <p class="sfilm-log">A young nurse trapped in a locked police SUV on Christmas Eve watches the night turn to escalating violence — and she's the only one left standing.</p>
+            </div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art"><img src="__KA_ACTRESS__" alt="Greatest Actress in the World key art" loading="lazy"><span class="status">In post</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Dark Comedy</p>
+              <p class="sfilm-cast">Mena Suvari &middot; C. Thomas Howell &middot; Lara Daans</p>
+              <p class="sfilm-log">An actress who never got her shot meets a devout cop who thinks he can handle her past. He can't. She can't escape it.</p>
+            </div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art art-title"><img src="__KA_PRAY__" alt="Pray for Me Redux key art" loading="lazy"><span class="status">In post</span><span class="ph-title">Pray for Me Redux</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Faith-Based Horror</p>
+              <p class="sfilm-log">A woman suffers a generational possession — a fallen angel bent on destroying her atheist husband. A battle of faith and damnation.</p>
+            </div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art"><img src="__KA_NFL__" alt="No Free Lunch key art" loading="lazy"><span class="status">In post</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-cast">Denise Richards &middot; Casper Van Dien</p>
+            </div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art art-title"><img src="__KA_TOFREEDOM__" alt="Key to Freedom key art" loading="lazy"><span class="status">In post</span><span class="ph-title">Key to Freedom</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Drama / Thriller</p>
+              <p class="sfilm-cast">Robert Patrick &middot; C. Thomas Howell</p>
+              <p class="sfilm-log">A television faith healer becomes a presidential candidate for a popular new political party.</p>
+            </div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art noart"><span class="status">In post</span><span class="ph-title">Model Citizen</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Action / Thriller</p>
+              <p class="sfilm-cast">Aaron Eckhart &middot; Emmanuelle Chriqui</p>
+              <p class="sfilm-log">A rogue cop, killed in a shootout, is brought back in a program to rewire criminal behaviour. Model citizen — or a better killer?</p>
+            </div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art noart"><span class="status">In post</span><span class="ph-title">Frat Buds</span></div>
+            <div class="sfilm-body"><p class="sfilm-genre">Comedy</p></div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art noart"><span class="status">In post</span><span class="ph-title">Silent Night Fall</span></div>
+          </article>
+        </div>
+      </div>
+
+      <!-- UPCOMING -->
+      <div class="slate-group fade">
+        <div class="slate-status-row"><h3>Upcoming</h3><span class="slate-count">16 titles · 2026–2027</span></div>
+        <div class="slate-cards">
+          <article class="sfilm">
+            <div class="sfilm-art art-title"><img src="__KA_QUEEN__" alt="The Queen key art" loading="lazy"><span class="status">May 2027</span><span class="ph-title">The Queen</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Thriller</p>
+              <p class="sfilm-log">A self-made billionaire decides to give her entire fortune away — and the men around her, including her lover, plot to stop her before she can.</p>
+            </div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art"><img src="__KA_JOURNEY__" alt="Journey to the 14 Presidents key art" loading="lazy"><span class="status">Aug 2027 · Spain</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Dystopian Action / Adventure</p>
+              <p class="sfilm-cast">Nicolas Cage &middot; Forest Whitaker &middot; Robert De Niro</p>
+              <p class="sfilm-log">In a post-apocalyptic wasteland stripped to four currencies, captured young men fight their way to freedom — brotherhood forged in the dark.</p>
+            </div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art"><img src="__KA_CHANG__" alt="Last Chance Chang key art" loading="lazy"><span class="status">In production · Animation</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Animated Western / Supernatural</p>
+              <p class="sfilm-log">A disgraced Shaolin monk, resurrected by the Demon King Mara as an instrument of supernatural vengeance in 1860s frontier America.</p>
+            </div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art"><img src="__KA_KINGSORROW__" alt="King of Sorrow key art" loading="lazy"><span class="status">2027 · Animation</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Crime Drama · Animated</p>
+              <p class="sfilm-log">Based on the festival-winning feature — the dark heroism of a scarred, fearless detective who takes the law into his own hands.</p>
+            </div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art art-title"><img src="__KA_FERTILITY__" alt="Fertility key art" loading="lazy"><span class="status">Apr 2027</span><span class="ph-title">Fertility</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Horror</p>
+              <p class="sfilm-log">A successful couple needs a surrogate to have a child. The woman they choose carries an ancient bloodline that's coming for the baby.</p>
+            </div>
+          </article>
+          <article class="sfilm">
+            <div class="sfilm-art noart"><span class="status">Jul 2027</span><span class="ph-title">The American</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Action / Thriller</p>
+              <p class="sfilm-cast">Casey Affleck &middot; Edward Norton &middot; Stana Katic</p>
+              <p class="sfilm-log">A retired detective in paradise is hired to find a missing woman — then framed for her murder, and must unravel a deadly island conspiracy.</p>
+            </div>
+          </article>
+          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Oct 2026</span><span class="ph-title">7 Missing Days</span></div></article>
+          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Nov 2026</span><span class="ph-title">Black Hole</span></div></article>
+          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Dec 2026</span><span class="ph-title">Miracles on Ice</span></div></article>
+          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Dec 2027</span><span class="ph-title">The Christmas Card</span></div></article>
+          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Feb 2027</span><span class="ph-title">Death Watch</span></div></article>
+          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Mar 2027</span><span class="ph-title">The Sicilian</span></div></article>
+          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Apr 2027</span><span class="ph-title">The Mountain</span></div></article>
+          <article class="sfilm"><div class="sfilm-art noart"><span class="status">May 2027</span><span class="ph-title">The Great Pretender</span></div></article>
+          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Jun 2027</span><span class="ph-title">Frontiersman</span></div></article>
+          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Aug 2027</span><span class="ph-title">Spear of Destiny</span></div></article>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRACK RECORD (released) -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <h2>Streaming Now</h2>
+    </div>
+
+    <div class="films fade">
+      <article class="film"><div class="film-poster"><img src="__P_RAPTUS__" alt="Raptus poster" loading="lazy"></div><h3>Raptus <span class="yr">2025</span></h3><p class="cast">Ksenia Solo, Nolan Gerard Funk, Christina Cox</p></article>
+      <article class="film"><div class="film-poster"><img src="__P_TCS__" alt="The Christmas Spirit poster" loading="lazy"></div><h3>The Christmas Spirit <span class="yr">2022</span></h3><p class="cast">Zion Forrest Lee, Nicolas Grimes</p></article>
+      <article class="film"><div class="film-poster"><img src="__P_CHERRY__" alt="Cherrypicker poster" loading="lazy"></div><h3>Cherrypicker <span class="yr">2021</span></h3><p class="cast">Colin Mochrie, Zion Forrest Lee</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_COMEBACK__" alt="The Comeback Trail poster" loading="lazy"></div><h3>The Comeback Trail <span class="yr">2020</span></h3><p class="cast">Robert De Niro, Tommy Lee Jones, Morgan Freeman</p></article>
+      <article class="film"><div class="film-poster"><img src="__P_SALV__" alt="Salvation poster" loading="lazy"></div><h3>Salvation <span class="yr">2019</span></h3><p class="cast">Julian Richings, Zion Forrest Lee</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_POISONROSE__" alt="The Poison Rose poster" loading="lazy"></div><h3>The Poison Rose <span class="yr">2019</span></h3><p class="cast">John Travolta, Morgan Freeman, Brendan Fraser</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_FIGHTINGMAN__" alt="A Fighting Man poster" loading="lazy"></div><h3>A Fighting Man <span class="yr">2014</span></h3><p class="cast">James Caan, Dominic Purcell, Famke Janssen</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_BIGWEDDING__" alt="The Big Wedding poster" loading="lazy"></div><h3>The Big Wedding <span class="yr">2013</span></h3><p class="cast">Robert De Niro, Diane Keaton, Robin Williams</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_BREAKOUT__" alt="Breakout poster" loading="lazy"></div><h3>Breakout <span class="yr">2013</span></h3><p class="cast">Brendan Fraser, Dominic Purcell, Ethan Suplee</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_DARKTRUTH__" alt="A Dark Truth poster" loading="lazy"></div><h3>A Dark Truth <span class="yr">2012</span></h3><p class="cast">Andy Garcia, Forest Whitaker, Eva Longoria</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_MYMOM__" alt="My Mom's New Boyfriend poster" loading="lazy"></div><h3>My Mom's New Boyfriend <span class="yr">2008</span></h3><p class="cast">Antonio Banderas, Meg Ryan</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_HEARTSOFWAR__" alt="Hearts of War poster" loading="lazy"></div><h3>Hearts of War <span class="yr">2007</span></h3><p class="cast">Nina Dobrev, Roy Scheider, Daryl Hannah, Colm Feore</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_CLEANER__" alt="Cleaner poster" loading="lazy"></div><h3>Cleaner <span class="yr">2007</span></h3><p class="cast">Samuel L. Jackson, Eva Mendes, Ed Harris</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_BLONDE__" alt="Blonde Ambition poster" loading="lazy"></div><h3>Blonde Ambition <span class="yr">2007</span></h3><p class="cast">Jessica Simpson, Luke Wilson</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_LASTRESORT__" alt="National Lampoon's Last Resort poster" loading="lazy"></div><h3>National Lampoon's Last Resort <span class="yr">1994</span></h3><p class="cast">Corey Feldman, Corey Haim</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_SKISCHOOL__" alt="Ski School poster" loading="lazy"></div><h3>Ski School <span class="yr">1990</span></h3><p class="cast">Dean Cameron</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_DEATHWISH__" alt="Death Wish poster" loading="lazy"></div><h3>Death Wish <span class="yr">1974</span></h3><p class="cast">Charles Bronson</p></article>
+    
+    </div>
+  </div>
+</section>
+
+<!-- NYT QUOTE -->
+<div class="quote">
+  <div class="quote-in fade">
+    <blockquote>"A delirious, uncomfortable back-and-forth that recalls the unearthly soapiness of <em>Malignant</em>. Lurid and darkly funny."</blockquote>
+    <cite>The New York Times <span class="ctx">— Five Horror Movies to Stream</span></cite>
+  </div>
+</div>
+
+<!-- STUDIO PRESS -->
+<section id="press">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="eyebrow">Studio Press</span>
+      <h2>Background &amp; releases.</h2>
+      <p>Company background and announcements. For interviews, stills, and press kits, contact the studio.</p>
+    </div>
+    <div class="press-grid fade">
+      <div class="press-bg">
+        <h3 class="press-sub">Background</h3>
+        <p>Horizon Line Film Company is a Canadian studio producing a multi-genre slate of feature films for the global market — commercially-driven pictures built around established talent, each fully financed before cameras roll.</p>
+        <p>The company develops, finances, and produces across action, thriller, horror, comedy, drama, and animation, working with distribution and finance partners including Warner Bros., Red Sea Media, and Gala Film.</p>
+        <div class="press-boiler">
+          <span class="l">Based</span><span class="v">Canada</span>
+          <span class="l">Producing partners</span><span class="v">Damian Lee, Bennet De Brabandere, Darren Bell, Rich Salvatore, Don Starr, Daniel Taylor</span>
+          <span class="l">Press contact</span><span class="v">press@horizonlinefilms.com <span class="tk-tag">TK</span></span>
+        </div>
+      </div>
+      <div class="press-releases">
+        <h3 class="press-sub">Press Releases</h3>
+        <ul class="prlist">
+          <li><span class="d">2026</span><span class="h">Horizon Line sets 21-title multi-genre slate across 2026–2027.</span></li>
+          <li><span class="d">2026</span><span class="h">Journey to the 14 Presidents — Nicolas Cage, Forest Whitaker, and Robert De Niro attached; shoots Spain, 2027.</span></li>
+          <li><span class="d">2026</span><span class="h">The American — Casey Affleck and Edward Norton join the cast.</span></li>
+          <li><span class="d">2026</span><span class="h">Model Citizen, starring Aaron Eckhart, completes production and enters post.</span></li>
+        </ul>
+        <p class="press-note">Draft headlines built from the slate — confirm what is public before release. <span class="tk-tag">TK</span></p>
+      </div>
+    </div>
+    <div class="mediakit fade">
+      <h3>Media Kit</h3>
+      <p>Slate key art, one-sheets, cast lists, and the company deck are available to press and partners on request — <a href="mailto:press@horizonlinefilms.com">press@horizonlinefilms.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="eyebrow">Leadership</span>
+      <h2>The sum of its parts.</h2>
+      <p>The team that develops, finances, and delivers the slate.</p>
+    </div>
+    <div class="team fade">
+      <div class="member">
+        <span class="role">Producer</span>
+        <h3>Damian Lee</h3>
+        <p>Veteran producer partnering across the slate, from the post-production titles through the tentpole.</p>
+      </div>
+      <div class="member">
+        <span class="role">Producer</span>
+        <h3>Bennet De Brabandere</h3>
+        <p>Producer across the Horizon Line slate, spanning action, thriller, horror, and drama.</p>
+      </div>
+      <div class="member">
+        <span class="role">Executive Producer</span>
+        <h3>Darren Bell</h3>
+        <p>Executive producer across the Horizon Line production programme.</p>
+      </div>
+      <div class="member">
+        <span class="role">Executive Producer</span>
+        <h3>Rich Salvatore</h3>
+        <p>Executive producer across the Horizon Line production programme.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap contact-in fade">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h2>Let's make films.<br>Let's make them all.</h2>
+      <a class="email" href="mailto:info@horizonlinefilms.com">info@horizonlinefilms.com</a>
+    </div>
+    <div class="contact-cols">
+      <div class="row"><span class="l">Development &amp; Submissions</span><span class="v">info@horizonlinefilms.com</span></div>
+      <div class="row"><span class="l">Financing &amp; Partnerships</span><span class="v">info@horizonlinefilms.com</span></div>
+      <div class="row"><span class="l">Press &amp; Media</span><span class="v">press@horizonlinefilms.com <span class="tk-tag">TK</span></span></div>
+      <div class="row"><span class="l">Office</span><span class="v">Canada</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="mk">Horizon Line Film Company</span>
+    <span>Canada</span>
+    <span>© 2026 Horizon Line Film Company</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
+  })();
+</script>
