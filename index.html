@@ -105,10 +105,6 @@
     0%{transform:translate(-50%,-50%) scaleX(0);box-shadow:0 0 40px 2px rgba(194,160,106,.55)}
     70%{box-shadow:0 0 40px 2px rgba(194,160,106,.55)}
     100%{transform:translate(-50%,-50%) scaleX(1);box-shadow:0 0 22px 0 rgba(194,160,106,.32)}}
-  .horizon-rule::after{content:"";position:absolute;top:-2px;bottom:-2px;width:140px;left:-12%;opacity:0;
-      background:linear-gradient(90deg,transparent,rgba(255,246,228,.85),transparent);
-      animation:glint 1.15s ease-in-out 2.45s forwards}
-  @keyframes glint{0%{left:-12%;opacity:0}18%{opacity:.85}82%{opacity:.85}100%{left:104%;opacity:0}}
   .hc-lead{font-family:var(--sans);text-transform:uppercase;letter-spacing:.12em;font-weight:400;
       font-size:clamp(13px,1.9vw,17px);color:#d8d2c8;max-width:40ch;margin:34px auto 0;line-height:1.85}
   .hc-mid{text-transform:uppercase;letter-spacing:.34em;font-size:11px;color:var(--brass);margin:22px 0 0;font-weight:500}
@@ -263,7 +259,6 @@
 
   @media(prefers-reduced-motion:reduce){
     .horizon-rule{animation:none;transform:translate(-50%,-50%) scaleX(1)}
-    .horizon-rule::after{animation:none;opacity:0}
     .wm-l{animation:none;opacity:1;filter:none}
     .o-sun{animation:none;transform:none;filter:brightness(1) drop-shadow(0 0 24px rgba(216,186,134,.4))}
     .o-refl{animation:none;transform:none;filter:brightness(1)}
