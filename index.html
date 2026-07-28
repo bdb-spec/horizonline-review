@@ -167,6 +167,8 @@
       padding:13px 2px;border-bottom:1px solid var(--rule)}
   .slate-index .si-t{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink);line-height:1.2}
   .slate-index .si-d{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);white-space:nowrap}
+  .slate-index .si-main{display:flex;flex-direction:column;gap:3px}
+  .slate-index .si-cast{font-size:12.5px;color:var(--ink-soft);font-weight:400;line-height:1.35}
 
   /* TRACK RECORD (released) */
   .films{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,26px)}
@@ -225,6 +227,8 @@
   .prlist li:last-child{border-bottom:none}
   .prlist .d{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass)}
   .prlist .h{font-size:15.5px;color:var(--ink);line-height:1.5;font-family:var(--serif)}
+  .prlist .h a{color:inherit;text-decoration:none;border-bottom:1px solid var(--brass-dim);transition:border-color .2s,color .2s}
+  .prlist .h a:hover{color:var(--brass-bright);border-color:var(--brass)}
   .press-note{margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.03em;line-height:1.6}
   .mediakit{margin-top:40px;padding-top:26px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 24px}
   .mediakit h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass)}
@@ -309,6 +313,7 @@
     <span>Warner Bros.</span><span class="dot"></span>
     <span>Red Sea Media</span><span class="dot"></span>
     <span>Gala Film</span><span class="dot"></span>
+    <span>Deadline</span><span class="dot"></span>
     <span>The New York Times</span>
   </div>
 </div>
@@ -447,7 +452,7 @@
           <li><span class="si-t">Black Hole</span><span class="si-d">Nov 2026</span></li>
           <li><span class="si-t">Miracles on Ice</span><span class="si-d">Dec 2026</span></li>
           <li><span class="si-t">Death Watch</span><span class="si-d">Feb 2027</span></li>
-          <li><span class="si-t">The Sicilian</span><span class="si-d">Mar 2027</span></li>
+          <li><span class="si-main"><span class="si-t">The Sicilian</span><span class="si-cast">Megan Fox &middot; Iain Glen &middot; Michele Morrone</span></span><span class="si-d">Mar 2027</span></li>
           <li><span class="si-t">The Mountain</span><span class="si-d">Apr 2027</span></li>
           <li><span class="si-t">The Great Pretender</span><span class="si-d">May 2027</span></li>
           <li><span class="si-t">Frontiersman</span><span class="si-d">Jun 2027</span></li>
@@ -529,14 +534,13 @@
         </div>
       </div>
       <div class="press-releases">
-        <h3 class="press-sub">Press Releases</h3>
+        <h3 class="press-sub">In the Press</h3>
         <ul class="prlist">
-          <li><span class="d">2026</span><span class="h">Horizon Line sets 24-title multi-genre slate across 2026–2027.</span></li>
-          <li><span class="d">2026</span><span class="h">Journey to the 14 Presidents — shoots in Spain, 2027.</span></li>
-          <li><span class="d">2026</span><span class="h">The American — Casey Affleck and Edward Norton join the cast.</span></li>
-          <li><span class="d">2026</span><span class="h">Model Citizen, starring Aaron Eckhart, completes production and enters post.</span></li>
+          <li><span class="d">The New York Times &middot; Feb 2026</span><span class="h"><a href="https://www.nytimes.com/2026/02/27/movies/horror-movies-streaming.html" target="_blank" rel="noopener">&#8216;Raptus&#8217; in &#8216;Five Horror Movies to Stream Now&#8217; &mdash; &#8220;Lurid and darkly funny.&#8221;</a></span></li>
+          <li><span class="d">Deadline &middot; Feb 2026</span><span class="h"><a href="https://deadline.com/2026/02/stana-katic-elisha-cuthbert-silent-night-fall-sales-deal-1236717411/" target="_blank" rel="noopener">Stana Katic &amp; Elisha Cuthbert in &#8216;Silent Night Fall&#8217;: details revealed</a></span></li>
+          <li><span class="d">Deadline &middot; Jan 2026</span><span class="h"><a href="https://deadline.com/2026/01/stana-katic-elisha-cuthbert-denise-richards-new-film-slate-1236661908/" target="_blank" rel="noopener">Stana Katic, Elisha Cuthbert, Denise Richards, C. Thomas Howell &amp; Mena Suvari lead new Horizon Line slate</a></span></li>
+          <li><span class="d">Deadline &middot; Jun 2025</span><span class="h"><a href="https://deadline.com/2025/06/the-sicilian-megan-fox-iain-glen-michele-morrone-1236432496/" target="_blank" rel="noopener">&#8216;The Sicilian&#8217; &mdash; Megan Fox, Iain Glen &amp; Michele Morrone</a></span></li>
         </ul>
-        <p class="press-note">Draft headlines built from the slate — confirm what is public before release. <span class="tk-tag">TK</span></p>
       </div>
     </div>
     <div class="mediakit fade">
