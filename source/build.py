@@ -9,7 +9,7 @@ M = {
  "__P_RAPTUS__":"poster-raptus.jpg","__P_TCS__":"poster-tcs.jpg","__P_CHERRY__":"poster-cherrypicker.jpg","__P_SALV__":"poster-salvation.jpg",
  "__KA_JOURNEY__":"key-journey.jpg","__KA_RUNLOCK__":"key-runlock.jpg","__KA_PRAY__":"key-pray.jpg","__KA_ACTRESS__":"key-actress.jpg",
  "__KA_NFL__":"key-nfl.jpg","__KA_TOFREEDOM__":"key-tofreedom.jpg","__KA_CHANG__":"key-chang.jpg","__KA_KINGSORROW__":"key-kingsorrow.jpg",
- "__KA_QUEEN__":"key-queen.jpg","__KA_FERTILITY__":"key-fertility.jpg",
+ "__KA_QUEEN__":"key-queen.jpg","__KA_FERTILITY__":"key-fertility.jpg","__KA_MODELCITIZEN__":"key-modelcitizen.jpg",
  "__LIB_DEATHWISH__":"lib-deathwish.jpg","__LIB_SKISCHOOL__":"lib-skischool.jpg","__LIB_LASTRESORT__":"lib-lastresort.jpg",
  "__LIB_BREAKOUT__":"lib-breakout.jpg","__LIB_DARKTRUTH__":"lib-darktruth.jpg","__LIB_FIGHTINGMAN__":"lib-fightingman.jpg",
  "__LIB_COMEBACK__":"lib-comeback.jpg","__LIB_BIGWEDDING__":"lib-bigwedding.jpg","__LIB_MYMOM__":"lib-mymom.jpg",

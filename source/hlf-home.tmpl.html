@@ -1,4 +1,19 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Horizon Line Film Company</title>
+<meta name="description" content="Horizon Line Film Company develops, finances, and produces feature films and television series for global audiences. Twenty-four features in post and upcoming.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bdb-spec.github.io/horizonline-review/">
+<meta property="og:title" content="Horizon Line Film Company">
+<meta property="og:description" content="Develops, finances, and produces feature films and television series for global audiences. Twenty-four features in post and upcoming.">
+<meta property="og:image" content="https://bdb-spec.github.io/horizonline-review/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0a09">
+<link rel="icon" type="image/png" href="favicon.png">
 <style>
   :root{
     --ground:#0b0a09;
@@ -6,7 +21,7 @@
     --panel:#131210;
     --ink:#ece6da;
     --ink-soft:#b6ae9f;
-    --ink-faint:#7c7568;
+    --ink-faint:#8a8375;
     --rule:rgba(236,230,218,.12);
     --rule-strong:rgba(236,230,218,.22);
     --brass:#c2a06a;
@@ -50,15 +65,22 @@
   .hero-in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:120px var(--edge) 64px;
       display:flex;flex-direction:column;align-items:center;text-align:center}
   .lockup{position:relative;display:inline-block}
-  .wordmark{font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;
+  .wordmark{position:relative;z-index:4;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;
       font-size:clamp(30px,9vw,120px);line-height:1;color:#f4efe6;text-shadow:0 2px 46px rgba(0,0,0,.6);
-      opacity:0;animation:wmark 1s ease .55s forwards}
-  @keyframes wmark{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+      opacity:0;animation:wmark 1.1s cubic-bezier(.16,1,.3,1) .9s forwards}
+  @keyframes wmark{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
   .horizon-rule{position:absolute;top:55%;left:50%;width:100vw;height:2px;z-index:3;transform-origin:center;
       transform:translate(-50%,-50%) scaleX(0);
       background:linear-gradient(90deg,transparent,var(--brass) 18%,var(--brass-bright) 50%,var(--brass) 82%,transparent);
-      box-shadow:0 0 34px 1px rgba(194,160,106,.5);animation:hrule 1.3s cubic-bezier(.16,1,.3,1) .35s forwards}
-  @keyframes hrule{to{transform:translate(-50%,-50%) scaleX(1)}}
+      box-shadow:0 0 22px 0 rgba(194,160,106,.32);animation:hrule 1.2s cubic-bezier(.16,1,.3,1) .2s forwards}
+  @keyframes hrule{
+    0%{transform:translate(-50%,-50%) scaleX(0);box-shadow:0 0 40px 2px rgba(194,160,106,.55)}
+    70%{box-shadow:0 0 40px 2px rgba(194,160,106,.55)}
+    100%{transform:translate(-50%,-50%) scaleX(1);box-shadow:0 0 22px 0 rgba(194,160,106,.32)}}
+  .horizon-rule::after{content:"";position:absolute;top:-2px;bottom:-2px;width:140px;left:-12%;opacity:0;
+      background:linear-gradient(90deg,transparent,rgba(255,246,228,.85),transparent);
+      animation:glint 1.15s ease-in-out 1.7s forwards}
+  @keyframes glint{0%{left:-12%;opacity:0}18%{opacity:.85}82%{opacity:.85}100%{left:104%;opacity:0}}
   .hc-lead{font-family:var(--sans);text-transform:uppercase;letter-spacing:.12em;font-weight:400;
       font-size:clamp(13px,1.9vw,17px);color:#d8d2c8;max-width:40ch;margin:34px auto 0;line-height:1.85}
   .hc-mid{text-transform:uppercase;letter-spacing:.34em;font-size:11px;color:var(--brass);margin:22px 0 0;font-weight:500}
@@ -97,9 +119,10 @@
   .sfilm{background:var(--ground);border:1px solid var(--rule);display:flex;flex-direction:column;overflow:hidden;transition:border-color .3s}
   .sfilm:hover{border-color:var(--brass-dim)}
   .sfilm-art{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--ground-2)}
-  .sfilm-art img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1)}
-  .sfilm:hover .sfilm-art img{transform:scale(1.05)}
-  .sfilm-art .status{position:absolute;top:10px;left:10px;z-index:3;font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;
+  .sfilm-art img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.72) brightness(.9) sepia(.06);
+      transition:transform .6s cubic-bezier(.16,1,.3,1),filter .6s ease}
+  .sfilm:hover .sfilm-art img{transform:scale(1.05);filter:none}
+  .sfilm-art .status{position:absolute;top:10px;left:10px;z-index:3;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
       text-transform:uppercase;color:#f2ede3;background:rgba(0,0,0,.42);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);padding:3px 8px;border-radius:2px}
   .sfilm-art.noart{display:flex;flex-direction:column;justify-content:flex-end;padding:16px;
       background:radial-gradient(135% 105% at 50% 26%,#18140f,#0c0b09)}
@@ -113,14 +136,38 @@
   .sfilm-cast{font-size:14.5px;color:var(--ink);font-weight:600;line-height:1.5}
   .sfilm-log{font-size:13px;color:var(--ink-soft);line-height:1.55;font-family:var(--serif);font-style:italic}
 
+  /* SLATE INDEX (no-art titles) */
+  .slate-index{margin-top:36px;columns:2;column-gap:56px;list-style:none}
+  @media(max-width:760px){.slate-index{columns:1}}
+  .slate-index li{break-inside:avoid;display:flex;align-items:baseline;justify-content:space-between;gap:18px;
+      padding:13px 2px;border-bottom:1px solid var(--rule)}
+  .slate-index .si-t{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink);line-height:1.2}
+  .slate-index .si-d{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);white-space:nowrap}
+
   /* TRACK RECORD (released) */
   .films{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,26px)}
   @media(max-width:900px){.films{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:460px){.films{grid-template-columns:1fr;max-width:340px;margin-left:auto;margin-right:auto}}
   .film{display:flex;flex-direction:column;gap:14px}
   .film-poster{position:relative;aspect-ratio:2/3;overflow:hidden;border:1px solid var(--rule);background:var(--ground-2)}
-  .film-poster img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
-  .film:hover .film-poster img{transform:scale(1.05)}
+  .film-poster img{width:100%;height:100%;object-fit:cover;filter:saturate(.78) brightness(.92) sepia(.05);
+      transition:transform .6s cubic-bezier(.16,1,.3,1),filter .6s ease}
+  .film:hover .film-poster img{transform:scale(1.05);filter:none}
+
+  /* FEATURED RELEASE */
+  .feature{margin-top:44px;display:grid;grid-template-columns:minmax(180px,270px) 1fr;gap:clamp(24px,4vw,54px);align-items:center;
+      border:1px solid var(--rule);background:var(--ground-2);padding:clamp(22px,3.4vw,40px)}
+  @media(max-width:680px){.feature{grid-template-columns:1fr}}
+  .feature .film-poster img{filter:none}
+  .feature:hover .film-poster img{transform:scale(1.03)}
+  .feature-info{display:flex;flex-direction:column;gap:12px}
+  .feature-info .fi-genre{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+  .feature-info h3{font-family:var(--serif);font-size:clamp(30px,4vw,44px);font-weight:600;line-height:1.05}
+  .feature-info .cast{font-size:15px;color:var(--ink-soft);line-height:1.6}
+  .feature-info .fi-press{margin-top:10px;font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink-soft);
+      line-height:1.6;border-left:1px solid var(--brass-dim);padding-left:14px}
+  .feature-info .fi-press b{font-family:var(--mono);font-style:normal;font-weight:500;font-size:10px;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--brass);display:block;margin-top:6px}
   .film-poster::after{content:"";position:absolute;inset:0;border:1px solid transparent;transition:border-color .3s}
   .film:hover .film-poster::after{border-color:var(--brass-dim)}
   .film h3{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.1}
@@ -180,13 +227,15 @@
   .contact-cols .row .l{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
   .contact-cols .row .v{font-size:14.5px;color:var(--ink-soft)}
 
-  footer{border-top:1px solid var(--rule);padding:34px 0}
+  .horizon-echo{height:1px;background:linear-gradient(90deg,transparent,var(--brass-dim) 32%,var(--brass) 50%,var(--brass-dim) 68%,transparent)}
+  footer{padding:34px 0}
   .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;
       font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-faint)}
   .foot-in .mk{font-family:var(--serif);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
 
   @media(prefers-reduced-motion:reduce){
     .horizon-rule{animation:none;transform:translate(-50%,-50%) scaleX(1)}
+    .horizon-rule::after{animation:none;opacity:0}
     .wordmark{animation:none;opacity:1;transform:none}
     .fade{opacity:1;transform:none;transition:none}
     html{scroll-behavior:auto}
@@ -257,7 +306,7 @@
             <div class="sfilm-body">
               <p class="sfilm-genre">Thriller / Crime</p>
               <p class="sfilm-cast">Grace Caroline Currey &middot; Kevin Durand</p>
-              <p class="sfilm-log">A young nurse trapped in a locked police SUV on Christmas Eve watches the night turn to escalating violence — and she's the only one left standing.</p>
+              <p class="sfilm-log">A young nurse trapped in a locked police SUV on Christmas Eve watches the night turn to escalating violence — and she’s the only one left standing.</p>
             </div>
           </article>
           <article class="sfilm">
@@ -265,7 +314,7 @@
             <div class="sfilm-body">
               <p class="sfilm-genre">Dark Comedy</p>
               <p class="sfilm-cast">Mena Suvari &middot; C. Thomas Howell &middot; Lara Daans</p>
-              <p class="sfilm-log">An actress who never got her shot meets a devout cop who thinks he can handle her past. He can't. She can't escape it.</p>
+              <p class="sfilm-log">An actress who never got her shot meets a devout cop who thinks he can handle her past. He can’t. She can’t escape it.</p>
             </div>
           </article>
           <article class="sfilm">
@@ -354,7 +403,7 @@
             <div class="sfilm-art art-title"><img src="__KA_FERTILITY__" alt="Fertility key art" loading="lazy"><span class="status">Apr 2027</span><span class="ph-title">Fertility</span></div>
             <div class="sfilm-body">
               <p class="sfilm-genre">Horror</p>
-              <p class="sfilm-log">A successful couple needs a surrogate to have a child. The woman they choose carries an ancient bloodline that's coming for the baby.</p>
+              <p class="sfilm-log">A successful couple needs a surrogate to have a child. The woman they choose carries an ancient bloodline that’s coming for the baby.</p>
             </div>
           </article>
           <article class="sfilm">
@@ -365,17 +414,19 @@
               <p class="sfilm-log">A retired detective in paradise is hired to find a missing woman — then framed for her murder, and must unravel a deadly island conspiracy.</p>
             </div>
           </article>
-          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Oct 2026</span><span class="ph-title">7 Missing Days</span></div></article>
-          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Nov 2026</span><span class="ph-title">Black Hole</span></div></article>
-          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Dec 2026</span><span class="ph-title">Miracles on Ice</span></div></article>
-          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Dec 2027</span><span class="ph-title">The Christmas Card</span></div></article>
-          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Feb 2027</span><span class="ph-title">Death Watch</span></div></article>
-          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Mar 2027</span><span class="ph-title">The Sicilian</span></div></article>
-          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Apr 2027</span><span class="ph-title">The Mountain</span></div></article>
-          <article class="sfilm"><div class="sfilm-art noart"><span class="status">May 2027</span><span class="ph-title">The Great Pretender</span></div></article>
-          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Jun 2027</span><span class="ph-title">Frontiersman</span></div></article>
-          <article class="sfilm"><div class="sfilm-art noart"><span class="status">Aug 2027</span><span class="ph-title">Spear of Destiny</span></div></article>
         </div>
+        <ul class="slate-index">
+          <li><span class="si-t">7 Missing Days</span><span class="si-d">Oct 2026</span></li>
+          <li><span class="si-t">Black Hole</span><span class="si-d">Nov 2026</span></li>
+          <li><span class="si-t">Miracles on Ice</span><span class="si-d">Dec 2026</span></li>
+          <li><span class="si-t">Death Watch</span><span class="si-d">Feb 2027</span></li>
+          <li><span class="si-t">The Sicilian</span><span class="si-d">Mar 2027</span></li>
+          <li><span class="si-t">The Mountain</span><span class="si-d">Apr 2027</span></li>
+          <li><span class="si-t">The Great Pretender</span><span class="si-d">May 2027</span></li>
+          <li><span class="si-t">Frontiersman</span><span class="si-d">Jun 2027</span></li>
+          <li><span class="si-t">Spear of Destiny</span><span class="si-d">Aug 2027</span></li>
+          <li><span class="si-t">The Christmas Card</span><span class="si-d">Dec 2027</span></li>
+        </ul>
       </div>
 
     </div>
@@ -386,11 +437,21 @@
 <section id="work">
   <div class="wrap">
     <div class="sec-head fade">
+      <span class="eyebrow">Released</span>
       <h2>Streaming Now</h2>
     </div>
 
+    <div class="feature fade">
+      <div class="film-poster"><img src="__P_RAPTUS__" alt="Raptus poster" loading="lazy"></div>
+      <div class="feature-info">
+        <p class="fi-genre">Horror / Thriller &middot; 2025</p>
+        <h3>Raptus</h3>
+        <p class="cast">Ksenia Solo, Nolan Gerard Funk, Christina Cox</p>
+        <p class="fi-press">&#8220;Lurid and darkly funny.&#8221;<b>The New York Times</b></p>
+      </div>
+    </div>
+
     <div class="films fade">
-      <article class="film"><div class="film-poster"><img src="__P_RAPTUS__" alt="Raptus poster" loading="lazy"></div><h3>Raptus <span class="yr">2025</span></h3><p class="cast">Ksenia Solo, Nolan Gerard Funk, Christina Cox</p></article>
       <article class="film"><div class="film-poster"><img src="__P_TCS__" alt="The Christmas Spirit poster" loading="lazy"></div><h3>The Christmas Spirit <span class="yr">2022</span></h3><p class="cast">Zion Forrest Lee, Nicolas Grimes</p></article>
       <article class="film"><div class="film-poster"><img src="__P_CHERRY__" alt="Cherrypicker poster" loading="lazy"></div><h3>Cherrypicker <span class="yr">2021</span></h3><p class="cast">Colin Mochrie, Zion Forrest Lee</p></article>
       <article class="film"><div class="film-poster"><img src="__LIB_COMEBACK__" alt="The Comeback Trail poster" loading="lazy"></div><h3>The Comeback Trail <span class="yr">2020</span></h3><p class="cast">Robert De Niro, Tommy Lee Jones, Morgan Freeman</p></article>
@@ -400,11 +461,11 @@
       <article class="film"><div class="film-poster"><img src="__LIB_BIGWEDDING__" alt="The Big Wedding poster" loading="lazy"></div><h3>The Big Wedding <span class="yr">2013</span></h3><p class="cast">Robert De Niro, Diane Keaton, Robin Williams</p></article>
       <article class="film"><div class="film-poster"><img src="__LIB_BREAKOUT__" alt="Breakout poster" loading="lazy"></div><h3>Breakout <span class="yr">2013</span></h3><p class="cast">Brendan Fraser, Dominic Purcell, Ethan Suplee</p></article>
       <article class="film"><div class="film-poster"><img src="__LIB_DARKTRUTH__" alt="A Dark Truth poster" loading="lazy"></div><h3>A Dark Truth <span class="yr">2012</span></h3><p class="cast">Andy Garcia, Forest Whitaker, Eva Longoria</p></article>
-      <article class="film"><div class="film-poster"><img src="__LIB_MYMOM__" alt="My Mom's New Boyfriend poster" loading="lazy"></div><h3>My Mom's New Boyfriend <span class="yr">2008</span></h3><p class="cast">Antonio Banderas, Meg Ryan</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_MYMOM__" alt="My Mom’s New Boyfriend poster" loading="lazy"></div><h3>My Mom’s New Boyfriend <span class="yr">2008</span></h3><p class="cast">Antonio Banderas, Meg Ryan</p></article>
       <article class="film"><div class="film-poster"><img src="__LIB_HEARTSOFWAR__" alt="Hearts of War poster" loading="lazy"></div><h3>Hearts of War <span class="yr">2007</span></h3><p class="cast">Nina Dobrev, Roy Scheider, Daryl Hannah, Colm Feore</p></article>
       <article class="film"><div class="film-poster"><img src="__LIB_CLEANER__" alt="Cleaner poster" loading="lazy"></div><h3>Cleaner <span class="yr">2007</span></h3><p class="cast">Samuel L. Jackson, Eva Mendes, Ed Harris</p></article>
       <article class="film"><div class="film-poster"><img src="__LIB_BLONDE__" alt="Blonde Ambition poster" loading="lazy"></div><h3>Blonde Ambition <span class="yr">2007</span></h3><p class="cast">Jessica Simpson, Luke Wilson</p></article>
-      <article class="film"><div class="film-poster"><img src="__LIB_LASTRESORT__" alt="National Lampoon's Last Resort poster" loading="lazy"></div><h3>National Lampoon's Last Resort <span class="yr">1994</span></h3><p class="cast">Corey Feldman, Corey Haim</p></article>
+      <article class="film"><div class="film-poster"><img src="__LIB_LASTRESORT__" alt="National Lampoon’s Last Resort poster" loading="lazy"></div><h3>National Lampoon’s Last Resort <span class="yr">1994</span></h3><p class="cast">Corey Feldman, Corey Haim</p></article>
       <article class="film"><div class="film-poster"><img src="__LIB_SKISCHOOL__" alt="Ski School poster" loading="lazy"></div><h3>Ski School <span class="yr">1990</span></h3><p class="cast">Dean Cameron</p></article>
       <article class="film"><div class="film-poster"><img src="__LIB_DEATHWISH__" alt="Death Wish poster" loading="lazy"></div><h3>Death Wish <span class="yr">1974</span></h3><p class="cast">Charles Bronson</p></article>
     
@@ -415,7 +476,7 @@
 <!-- NYT QUOTE -->
 <div class="quote">
   <div class="quote-in fade">
-    <blockquote>"A delirious, uncomfortable back-and-forth that recalls the unearthly soapiness of <em>Malignant</em>. Lurid and darkly funny."</blockquote>
+    <blockquote>&#8220;A delirious, uncomfortable back-and-forth that recalls the unearthly soapiness of <em>Malignant</em>. Lurid and darkly funny.&#8221;</blockquote>
     <cite>The New York Times <span class="ctx">on <em>Raptus</em> — Five Horror Movies to Stream</span></cite>
   </div>
 </div>
@@ -442,7 +503,7 @@
       <div class="press-releases">
         <h3 class="press-sub">Press Releases</h3>
         <ul class="prlist">
-          <li><span class="d">2026</span><span class="h">Horizon Line sets 21-title multi-genre slate across 2026–2027.</span></li>
+          <li><span class="d">2026</span><span class="h">Horizon Line sets 24-title multi-genre slate across 2026–2027.</span></li>
           <li><span class="d">2026</span><span class="h">Journey to the 14 Presidents — Nicolas Cage, Forest Whitaker, and Robert De Niro attached; shoots Spain, 2027.</span></li>
           <li><span class="d">2026</span><span class="h">The American — Casey Affleck and Edward Norton join the cast.</span></li>
           <li><span class="d">2026</span><span class="h">Model Citizen, starring Aaron Eckhart, completes production and enters post.</span></li>
@@ -495,7 +556,7 @@
   <div class="wrap contact-in fade">
     <div>
       <span class="eyebrow">Contact</span>
-      <h2>Let's make films.<br>Let's make them all.</h2>
+      <h2>Let’s make films.<br>Let’s make them all.</h2>
       <a class="email" href="mailto:info@horizonlinefilms.com">info@horizonlinefilms.com</a>
     </div>
     <div class="contact-cols">
@@ -507,6 +568,7 @@
   </div>
 </section>
 
+<div class="horizon-echo" aria-hidden="true"></div>
 <footer>
   <div class="wrap foot-in">
     <span class="mk">Horizon Line Film Company</span>
