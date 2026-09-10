@@ -18,8 +18,11 @@ for n in DECK:
         w, h = im.size; im = im.crop((0, int(h * 0.09), w, h))
     im.thumbnail((1400, 1400), Image.LANCZOS)
     im.save(out / f"{n}.jpg", "JPEG", quality=78, optimize=True, progressive=True)
-for n in ["key-fertility","poster-raptus","poster-tcs","poster-cherrypicker","poster-salvation"]:
+for n in ["poster-raptus","poster-tcs","poster-cherrypicker","poster-salvation"]:
     shutil.copy2(here / "web" / f"{n}.jpg", out / f"{n}.jpg")
+# key art ships under a versioned name so browser/edge caches (max-age 14400) miss when it changes
+for stale in out.glob("key-fertility*.jpg"): stale.unlink()
+shutil.copy2(here / "web" / "key-fertility.jpg", out / "key-fertility-v2.jpg")
 src_pdf = pathlib.Path.home() / "Documents/FERTILITY/FERTILITY-DIRECTORS-VISION.pdf"
 shutil.copy2(src_pdf, here / "fertility-pdf" / "FERTILITY-DIRECTORS-VISION.pdf")
 tot = sum(p.stat().st_size for p in out.glob("*.jpg"))

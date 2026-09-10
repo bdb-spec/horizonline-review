@@ -26,6 +26,8 @@ print("wrote", out, out.stat().st_size // 1024, "KB")
 import shutil
 fdir = here.parent / "fertility"; (fdir / "img").mkdir(parents=True, exist_ok=True)
 (fdir / "index.html").write_text((here / "fertility.tmpl.html").read_text())
+for stale in (fdir / "img").glob("*.jpg"):  # keep the shipped img/ dir in lockstep with fertility-img/
+    if not (here / "fertility-img" / stale.name).exists(): stale.unlink()
 for f in (here / "fertility-img").glob("*.jpg"):
     shutil.copy2(f, fdir / "img" / f.name)
 # deck PDF deliberately NOT shipped (Bennet 2026-09-10: the page is a coming-soon production page, not a pitch); source stays in fertility-pdf/
