@@ -14,6 +14,8 @@ for n in DECK:
     im = ImageOps.exif_transpose(Image.open(deck / f"{n}.jpg")).convert("RGB")
     if n == "leah-pregnant":  # stock-agency watermark runs down the left edge; crop it out of the web copy
         w, h = im.size; im = im.crop((int(w * 0.14), 0, w, h))
+    if n == "ultrasound":  # clinical header strip carries the patient name, ID and timestamp; never publish it
+        w, h = im.size; im = im.crop((0, int(h * 0.09), w, h))
     im.thumbnail((1400, 1400), Image.LANCZOS)
     im.save(out / f"{n}.jpg", "JPEG", quality=78, optimize=True, progressive=True)
 for n in ["key-fertility","poster-raptus","poster-tcs","poster-cherrypicker","poster-salvation"]:
