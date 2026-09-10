@@ -1,11 +1,12 @@
 # Horizon Line — review site source
 
-`index.html` (repo root) is the deployed, self-contained page (GitHub Pages, branch main, ~1.8 MB, all images base64-inlined). Live at **https://bdb-spec.github.io/horizonline-review/** — the internal review link circulated to Bennet's team. This repo is the single durable source of truth for the site; any agent can make changes from a fresh clone with nothing but this README.
+`index.html` (repo root) is the deployed, self-contained page (~2.3 MB, all images base64-inlined). Live at **https://horizonlinefilms.com** — Cloudflare Pages project `horizonline`, deployed with `wrangler` from this repo (since 2026-07-28; the old GitHub Pages URL is a legacy mirror, not the target). This repo is the single durable source of truth for the site; any agent can make changes from a fresh clone with nothing but this README.
 
 ## Edit loop
 1. Edit `source/hlf-home.tmpl.html` (the ONLY file you hand-edit; it uses image tokens like `__KA_QUEEN__` — full token→file map lives in `source/build.py`).
 2. `cd source && python3 build.py` → regenerates `../index.html` with images inlined.
-3. Commit `index.html` + `source/hlf-home.tmpl.html` together and push → Pages redeploys the same URL in ~45–75 s.
+3. Commit `index.html` + `source/hlf-home.tmpl.html` together (`SKIP_SECRET_GATE=1`, see Gotchas) and push, then deploy:
+   `D=$(mktemp -d); cp index.html og-card.png favicon.png $D/; set -a; . ~/.claude/credentials.env; set +a; wrangler pages deploy $D --project-name horizonline --branch main --commit-dirty=true` (token is Pages-scoped; never `rm -rf` in the chain — the destructive-guard hook blocks the whole command).
 4. Verify live with a cache-buster (`?v=<anything>`): Pages serves `max-age=600`, so a plain reload can show the stale build for up to 10 min.
 
 ### Gotchas (all learned the hard way)
@@ -25,7 +26,7 @@ The hero enacts a sunrise; every piece below was a deliberate Bennet decision �
 
 **Reduced motion:** the `prefers-reduced-motion` block pins everything to the static end state. Any new animated element MUST get a line there.
 
-**The mark:** the finished O = crisp gold dome above the line + soft reflection below. `favicon.png` and `og-card.png` (repo root) carry the same dome-and-reflection mark — regenerate both if the mark changes (favicon via PIL; OG card by rendering a 1200×630 lockup snapshot).
+**The mark:** the finished O = crisp gold dome above the line + soft reflection below. `favicon.png` and `og-card.png` (repo root) carry the same dome-and-reflection mark — regenerate both if the mark changes (favicon via PIL; OG card by rendering `source/og-card.html` — a 1200×630 lockup snapshot that mirrors the sun/rule CSS — with a headless browser at viewport 1200×630, DPR 1). Both regenerated warm 2026-09-10 when the sun went yellow-orange (`#ffe27a → #ffb42e → #f5841f`, glow `rgba(255,160,40)`); the brass line/nav did not change.
 
 ## Design system (do not drift)
 - Palette/type via CSS vars in `:root` — warm near-black ground, ivory ink, brass accents; Iowan/Palatino serif display, system sans body, mono for metadata only. 3 families is the accepted ceiling.
@@ -35,7 +36,10 @@ The hero enacts a sunrise; every piece below was a deliberate Bennet decision �
 - `--ink-faint` is AA-tuned (#8a8375 ≈ 5.26:1 on the ground) — don't darken it back.
 - Body copy uses typographic quotes/apostrophes (’ “ ”); keep it that way in new copy.
 
-## Review-gate state (2026-07-28)
+## Review-gate state
+**2026-09-10** `/design-review` Mode B on the live public site after the warm-sun change: **REVISE → PASS (re-gated)**. Findings fixed: letterspaced lowercase (`.slate-count` → tracked caps, footer tracking 0), reduced-motion parity for the reflection glow, hero-stats separator hidden when the stats wrap (≤600px), favicon + OG card regenerated warm. Decision: the horizon rule stays brass — the sun's 26px orange glow already ties line and sun at the contact point; warming the rule would add a second focal point. Artifact: `DESIGN-REVIEW-horizonline-warm-sun-2026-09-10.md` in the WEBSITE-REVIEW folder below. Gotcha: headless Chrome enforces a ~500px minimum window, so `--window-size=390,…` lays out at 500 and crops — use Playwright for sub-500px renders.
+
+### 2026-07-28
 `/design-review` Mode B verdict: **PASS for internal-review circulation** (full artifact + QC screenshots: `~/Documents/HORIZON LINE FILM COMPANY/WEBSITE-REVIEW/` in the HOME machine filing, not this repo). Standing items before the site goes truly PUBLIC:
 1. Strip the two `TK` tags (press contact + draft-headlines note).
 2. Confirm rights to the 12 library streaming titles and announceability of slate cast attachments / press headlines (sourced from the Confidential Grosvenor Park slate).
