@@ -77,23 +77,23 @@
   .o-cell{position:relative;display:inline-block}
   .o-port{display:inline-block;clip-path:inset(-200% -60% 45% -60%)}
   .o-sun{position:relative;display:inline-block;text-shadow:none;color:transparent;
-      background:linear-gradient(#e9d2a2,var(--brass-bright) 55%,var(--brass));-webkit-background-clip:text;background-clip:text;
-      transform:translateY(.62em);filter:brightness(.5) drop-shadow(0 0 12px rgba(216,186,134,.14));
+      background:linear-gradient(#ffe27a,#ffb42e 55%,#f5841f);-webkit-background-clip:text;background-clip:text;
+      transform:translateY(.62em);filter:brightness(.5) drop-shadow(0 0 12px rgba(255,160,40,.14));
       animation:osun 1.7s cubic-bezier(.4,.1,.2,1) .3s forwards}
   @keyframes osun{
-    0%{transform:translateY(.62em);filter:brightness(.5) drop-shadow(0 0 12px rgba(216,186,134,.14))}
-    55%{filter:brightness(.78) drop-shadow(0 0 18px rgba(216,186,134,.26))}
-    100%{transform:none;filter:brightness(1) drop-shadow(0 0 24px rgba(216,186,134,.4))}}
+    0%{transform:translateY(.62em);filter:brightness(.5) drop-shadow(0 0 12px rgba(255,160,40,.14))}
+    55%{filter:brightness(.78) drop-shadow(0 0 18px rgba(255,160,40,.26))}
+    100%{transform:none;filter:brightness(1) drop-shadow(0 0 26px rgba(255,160,40,.55))}}
   .o-mirror{position:absolute;inset:0;pointer-events:none;opacity:.58;filter:blur(1px) brightness(.92);
       -webkit-mask-image:linear-gradient(180deg,transparent 0 55.5%,rgba(0,0,0,.92) 58%,rgba(0,0,0,.5) 78%,transparent 98%);
       mask-image:linear-gradient(180deg,transparent 0 55.5%,rgba(0,0,0,.92) 58%,rgba(0,0,0,.5) 78%,transparent 98%)}
   .o-flip{position:absolute;inset:0;transform:scaleY(-.94);transform-origin:50% 55%}
   .o-refl{display:inline-block;color:transparent;
-      background:linear-gradient(#e9d2a2,var(--brass-bright) 55%,var(--brass));-webkit-background-clip:text;background-clip:text;
-      transform:translateY(.62em);filter:brightness(.5) drop-shadow(0 0 12px rgba(216,186,134,.14));
+      background:linear-gradient(#ffe27a,#ffb42e 55%,#f5841f);-webkit-background-clip:text;background-clip:text;
+      transform:translateY(.62em);filter:brightness(.5) drop-shadow(0 0 12px rgba(255,160,40,.14));
       animation:osun 1.7s cubic-bezier(.4,.1,.2,1) .3s forwards}
   .o-sun::before{content:"";position:absolute;inset:-22%;z-index:-1;border-radius:50%;
-      background:radial-gradient(circle,rgba(216,186,134,.22),transparent 66%);
+      background:radial-gradient(circle,rgba(255,160,40,.32),transparent 66%);
       opacity:0;animation:halo 1.4s ease 1.75s forwards}
   @keyframes halo{to{opacity:1}}
   .hc-lead,.hc-mid,.hc-lead2,.hero-stats{opacity:0;animation:copyfade .9s ease 2.3s forwards}
@@ -267,7 +267,7 @@
   @media(prefers-reduced-motion:reduce){
     .horizon-rule{animation:none;transform:translate(-50%,-50%) scaleX(1)}
     .wm-l{animation:none;opacity:1;filter:none}
-    .o-sun{animation:none;transform:none;filter:brightness(1) drop-shadow(0 0 24px rgba(216,186,134,.4))}
+    .o-sun{animation:none;transform:none;filter:brightness(1) drop-shadow(0 0 26px rgba(255,160,40,.55))}
     .o-refl{animation:none;transform:none;filter:brightness(1)}
     .o-sun::before{animation:none;opacity:1}
     .hc-lead,.hc-mid,.hc-lead2,.hero-stats{animation:none;opacity:1}
@@ -414,6 +414,13 @@
             </div>
           </article>
           <article class="sfilm">
+            <div class="sfilm-art art-title"><img src="__KA_FERTILITY__" alt="Fertility key art" loading="lazy"><span class="status">Apr 2027</span><span class="ph-title">Fertility</span></div>
+            <div class="sfilm-body">
+              <p class="sfilm-genre">Horror</p>
+              <p class="sfilm-log">A successful couple needs a surrogate to have a child. The woman they choose carries an ancient bloodline that’s coming for the baby.</p>
+            </div>
+          </article>
+          <article class="sfilm">
             <div class="sfilm-art"><img src="__KA_JOURNEY__" alt="Journey to the 14 Presidents key art" loading="lazy"><span class="status">Aug 2027 · Spain</span></div>
             <div class="sfilm-body">
               <p class="sfilm-genre">Dystopian Action / Adventure</p>
@@ -432,13 +439,6 @@
             <div class="sfilm-body">
               <p class="sfilm-genre">Crime Drama · Animated</p>
               <p class="sfilm-log">Based on the festival-winning feature — the dark heroism of a scarred, fearless detective who takes the law into his own hands.</p>
-            </div>
-          </article>
-          <article class="sfilm">
-            <div class="sfilm-art art-title"><img src="__KA_FERTILITY__" alt="Fertility key art" loading="lazy"><span class="status">Apr 2027</span><span class="ph-title">Fertility</span></div>
-            <div class="sfilm-body">
-              <p class="sfilm-genre">Horror</p>
-              <p class="sfilm-log">A successful couple needs a surrogate to have a child. The woman they choose carries an ancient bloodline that’s coming for the baby.</p>
             </div>
           </article>
           <article class="sfilm">
