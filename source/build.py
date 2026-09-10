@@ -28,5 +28,6 @@ fdir = here.parent / "fertility"; (fdir / "img").mkdir(parents=True, exist_ok=Tr
 (fdir / "index.html").write_text((here / "fertility.tmpl.html").read_text())
 for f in (here / "fertility-img").glob("*.jpg"):
     shutil.copy2(f, fdir / "img" / f.name)
-shutil.copy2(here / "fertility-pdf" / "FERTILITY-DIRECTORS-VISION.pdf", fdir / "FERTILITY-DIRECTORS-VISION.pdf")
-print("wrote", fdir / "index.html", (fdir / "index.html").stat().st_size // 1024, "KB;", len(list((fdir / "img").glob("*.jpg"))), "images; deck pdf")
+# deck PDF deliberately NOT shipped (Bennet 2026-09-10: the page is a coming-soon production page, not a pitch); source stays in fertility-pdf/
+for stale in fdir.glob("*.pdf"): stale.unlink()
+print("wrote", fdir / "index.html", (fdir / "index.html").stat().st_size // 1024, "KB;", len(list((fdir / "img").glob("*.jpg"))), "images; no pdf")
