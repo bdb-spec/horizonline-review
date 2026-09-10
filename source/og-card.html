@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<title>Horizon Line — OG card (1200×630 lockup snapshot)</title>
+<style>
+  /* Tokens + lockup CSS mirrored from source/hlf-home.tmpl.html, written in the settled end state (no animation). */
+  :root{--ground:#0b0a09;--brass:#c2a06a;--brass-bright:#d8ba86;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{background:var(--ground);position:relative;
+    background:radial-gradient(82% 62% at 50% 50%,#141210 0%,var(--ground) 68%)}
+  .glow{position:absolute;inset:0;background:radial-gradient(56% 42% at 50% 51%,rgba(194,160,106,.08),transparent 70%)}
+  .vig{position:absolute;inset:0;background:radial-gradient(130% 105% at 50% 50%,transparent 52%,rgba(0,0,0,.55) 100%)}
+  .lockup{position:absolute;left:50%;top:256px;transform:translateX(-50%);display:inline-block}
+  .wordmark{position:relative;z-index:4;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;
+    font-size:117px;line-height:1;color:#f4efe6;text-shadow:0 2px 46px rgba(0,0,0,.6)}
+  .wm-l{display:inline-block}
+  .o-cell{position:relative;display:inline-block}
+  .o-port{display:inline-block;clip-path:inset(-200% -60% 45% -60%)}
+  .o-sun{position:relative;display:inline-block;text-shadow:none;color:transparent;
+    background:linear-gradient(#ffe27a,#ffb42e 55%,#f5841f);-webkit-background-clip:text;background-clip:text;
+    filter:brightness(1) drop-shadow(0 0 26px rgba(255,160,40,.55))}
+  .o-sun::before{content:"";position:absolute;inset:-22%;z-index:-1;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,160,40,.32),transparent 66%)}
+  .o-mirror{position:absolute;inset:0;pointer-events:none;opacity:.58;filter:blur(1px) brightness(.92);
+    -webkit-mask-image:linear-gradient(180deg,transparent 0 55.5%,rgba(0,0,0,.92) 58%,rgba(0,0,0,.5) 78%,transparent 98%);
+    mask-image:linear-gradient(180deg,transparent 0 55.5%,rgba(0,0,0,.92) 58%,rgba(0,0,0,.5) 78%,transparent 98%)}
+  .o-flip{position:absolute;inset:0;transform:scaleY(-.94);transform-origin:50% 55%}
+  .o-refl{display:inline-block;color:transparent;background:linear-gradient(#ffe27a,#ffb42e 55%,#f5841f);
+    -webkit-background-clip:text;background-clip:text;filter:brightness(1) drop-shadow(0 0 26px rgba(255,160,40,.55))}
+  .horizon-rule{position:absolute;top:55%;left:50%;width:1200px;height:2px;z-index:3;transform:translate(-50%,-50%);
+    background:linear-gradient(90deg,transparent,var(--brass) calc(var(--sunx,600px) - 384px),var(--brass-bright) var(--sunx,600px),var(--brass) calc(var(--sunx,600px) + 384px),transparent);
+    box-shadow:0 0 22px 0 rgba(194,160,106,.32)}
+  .eyebrow{position:absolute;left:0;right:0;top:517px;text-align:center;font-family:var(--mono);font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--brass)}
+</style>
+<div class="glow"></div><div class="vig"></div>
+<div class="lockup">
+  <h1 class="wordmark"><span class="wm-l">Horiz</span><span class="o-cell"><span class="o-port"><span class="o-sun">o</span></span><span class="o-mirror" aria-hidden="true"><span class="o-flip"><span class="o-refl">o</span></span></span></span><span class="wm-l">n Line</span></h1>
+  <div class="horizon-rule"></div>
+</div>
+<p class="eyebrow">Film Company</p>
+<script>
+  var o=document.querySelector('.o-sun'),rule=document.querySelector('.horizon-rule'),lk=document.querySelector('.lockup');
+  var lr=lk.getBoundingClientRect(),or=o.getBoundingClientRect();
+  var ruleLeft=lr.left+lr.width/2-600;
+  rule.style.setProperty('--sunx',(or.left+or.width/2-ruleLeft)+'px');
+</script>
+</html>
