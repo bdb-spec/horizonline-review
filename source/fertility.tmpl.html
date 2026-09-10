@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fertility · Horizon Line Film Company</title>
+<meta name="description" content="FERTILITY, a gothic horror feature written and directed by Bennet De Brabandere, in pre-production at Horizon Line Film Company. A successful couple needs a surrogate to have a child. The woman they choose carries an ancient bloodline that’s coming for the baby.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://horizonlinefilms.com/fertility/">
+<link rel="canonical" href="https://horizonlinefilms.com/fertility/">
+<meta property="og:title" content="Fertility · Horizon Line Film Company">
+<meta property="og:description" content="A successful couple needs a surrogate to have a child. The woman they choose carries an ancient bloodline that’s coming for the baby. Gothic horror, in pre-production. Director’s Vision by Bennet De Brabandere.">
+<meta property="og:image" content="https://horizonlinefilms.com/fertility/img/key-fertility.jpg">
+<meta property="og:image:width" content="880">
+<meta property="og:image:height" content="495">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0a09">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+  :root{
+    --ground:#0b0a09;--ground-2:#0f0d0b;--panel:#131210;
+    --ink:#ece6da;--ink-soft:#b6ae9f;--ink-faint:#8a8375;
+    --rule:rgba(236,230,218,.12);--rule-strong:rgba(236,230,218,.22);
+    --brass:#c2a06a;--brass-bright:#d8ba86;--brass-dim:rgba(194,160,106,.38);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+    --edge:clamp(20px,5.5vw,64px);--maxw:1200px;--text:62ch;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--edge);padding-right:var(--edge)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--brass)}
+
+  /* NAV (shared with the calling card) */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,10,9,.72);
+      backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:15px var(--edge);display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .nav-mark{font-family:var(--serif);font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+  .nav-mark b{color:var(--brass);font-weight:600}
+  .nav-links{display:flex;gap:30px}
+  .nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);transition:color .25s}
+  .nav-links a:hover,.nav-links a.here{color:var(--brass)}
+  @media(max-width:680px){.nav-links{gap:18px}.nav-links a.hide-sm{display:none}}
+
+  /* HERO */
+  .fhero{position:relative;padding:calc(64px + 9vw) 0 0;overflow:hidden;
+      background:radial-gradient(90% 70% at 50% 0%,#151210 0%,var(--ground) 70%)}
+  .fhero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(130% 105% at 50% 40%,transparent 55%,rgba(0,0,0,.5) 100%)}
+  .fhero-in{position:relative;z-index:2;display:flex;flex-direction:column;gap:16px}
+  .fhero .eyebrow{display:flex;flex-wrap:wrap;gap:6px 12px}
+  .fhero .eyebrow a{color:var(--ink-faint);transition:color .25s}
+  .fhero .eyebrow a:hover{color:var(--brass)}
+  .fhero h1{font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+      font-size:clamp(52px,13vw,150px);line-height:.95;color:#f4efe6;text-shadow:0 2px 46px rgba(0,0,0,.6);margin-top:6px}
+  .tag{font-family:var(--serif);font-style:italic;font-size:clamp(21px,3.2vw,32px);line-height:1.3;color:var(--brass-bright)}
+  .log{font-size:clamp(17px,2.1vw,22px);line-height:1.55;color:var(--ink);max-width:36em;text-wrap:pretty}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-top:4px}
+  .meta .dot{width:3px;height:3px;border-radius:50%;background:var(--brass)}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px 16px;margin-top:14px}
+  .btn{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:13px 20px;
+      border:1px solid var(--brass-dim);color:var(--brass);transition:border-color .25s,color .25s,background .25s}
+  .btn:hover{border-color:var(--brass);color:var(--brass-bright)}
+  .btn.primary{background:var(--brass);color:#1a1206;border-color:var(--brass)}
+  .btn.primary:hover{background:var(--brass-bright);color:#1a1206}
+  @media(max-width:600px){.meta .dot{display:none} .meta{gap:6px 14px} .ctas .btn{flex:1 1 100%;text-align:center}}
+  .keyart{position:relative;z-index:2;margin:clamp(36px,6vw,64px) 0 0;border:1px solid var(--rule);aspect-ratio:16/9;overflow:hidden;background:var(--ground-2)}
+  .keyart img{width:100%;height:100%;object-fit:cover}
+  .horizon-echo{height:1px;background:linear-gradient(90deg,transparent,var(--brass-dim) 32%,var(--brass) 50%,var(--brass-dim) 68%,transparent)}
+
+  /* SECTION SCAFFOLD */
+  section{padding:clamp(56px,9vw,110px) 0;position:relative}
+  .sec-head{display:flex;flex-direction:column;gap:14px;max-width:64ch}
+  .sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.6vw,48px);line-height:1.05;letter-spacing:-.015em;text-wrap:balance}
+  .sec-head p{color:var(--ink-soft);font-size:clamp(16px,2vw,18px);line-height:1.6;max-width:58ch}
+  .fade{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .fade.in{opacity:1;transform:none}
+
+  /* DIRECTOR'S VISION BLOCKS */
+  .vblock{padding:clamp(40px,6.5vw,76px) 0;border-top:1px solid var(--rule)}
+  .vblock.first{border-top:0;padding-top:clamp(28px,4vw,48px)}
+  .vblock h3{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4.4vw,44px);line-height:1.08;letter-spacing:-.01em;margin:10px 0 18px;text-wrap:balance;max-width:20ch}
+  .vblock p{color:var(--ink-soft);font-size:clamp(16px,1.9vw,18px);line-height:1.6;max-width:var(--text);margin-bottom:14px;text-wrap:pretty}
+  .vblock p:last-child{margin-bottom:0}
+  .vblock .lead{color:var(--ink);font-size:clamp(17px,2.1vw,20px)}
+  .vblock .note{font-family:var(--serif);font-style:italic;color:var(--ink-faint);font-size:15px;margin-top:18px}
+  figure{margin:26px 0 0}
+  figure img{width:100%;height:auto;border:1px solid var(--rule)}
+  figure.crop img{aspect-ratio:16/8;object-fit:cover}
+  figure.crop-tall img{aspect-ratio:4/3;object-fit:cover}
+  figure.crop-portrait img{aspect-ratio:3/4;object-fit:cover}
+  figcaption{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink-soft);line-height:1.55;margin-top:10px;max-width:62ch}
+  figcaption b{font-style:normal;font-weight:600;color:var(--ink)}
+  .two{display:grid;grid-template-columns:1fr;gap:26px;margin-top:26px}
+  .two figure{margin:0}
+  .two .txt h3{margin-top:0}
+  .two.flip>*:first-child{order:2}
+  @media(max-width:879px){.two.mtext>figure:first-child{order:2}}
+  .small{max-width:300px}
+  .centered{margin-left:auto;margin-right:auto}
+  .stanza{font-family:var(--serif);font-size:clamp(24px,4vw,40px);line-height:1.4;color:#f0eadf;text-align:center;margin-top:30px;text-wrap:balance}
+  .stanza .em{color:var(--brass-bright);font-style:italic}
+  .pieces{display:grid;grid-template-columns:1fr;gap:26px;margin-top:8px}
+  .piece{padding:16px 0 0;border-top:1px solid var(--rule)}
+  .piece:first-child{border-top:0;padding-top:0}
+  .piece h4{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:500}
+  .piece p{margin:8px 0 0;font-size:clamp(15px,1.8vw,17px)}
+  .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .thumbs figure{margin:0}
+  .thumbs img{aspect-ratio:3/4;object-fit:cover}
+  .thumbs figcaption{font-size:13px}
+  @media(min-width:880px){
+    .two{grid-template-columns:1fr 1fr;gap:clamp(28px,4.5vw,60px);align-items:start;margin-top:30px}
+    .two.wide{grid-template-columns:1.25fr 1fr}
+    .pieces{grid-template-columns:1.3fr 1fr;gap:clamp(28px,4.5vw,60px)}
+    .thumbs{grid-template-columns:1fr;max-width:250px;margin:0 auto;gap:18px}
+  }
+
+  /* THE DIRECTOR */
+  .director{border-top:1px solid var(--rule);background:var(--ground-2)}
+  .dir-quote{margin-top:34px;border-left:1px solid var(--brass-dim);padding-left:18px;max-width:62ch}
+  .dir-quote blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.6vw,26px);line-height:1.4;color:#f0eadf;text-wrap:pretty}
+  .dir-quote cite{display:block;margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-style:normal}
+  .dir-quote cite a{border-bottom:1px solid var(--brass-dim)}
+  .dir-quote .ctx{color:var(--ink-faint);letter-spacing:.1em}
+  .plats{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px 22px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+  .plats .dot{width:3px;height:3px;border-radius:50%;background:var(--brass);align-self:center}
+  .films{margin-top:clamp(40px,6vw,64px);display:flex;flex-direction:column;gap:clamp(36px,5vw,56px)}
+  .film{display:grid;grid-template-columns:104px 1fr;gap:18px;align-items:start;padding-top:clamp(28px,4vw,40px);border-top:1px solid var(--rule)}
+  .film img{width:100%;aspect-ratio:2/3;object-fit:cover;border:1px solid var(--rule);filter:saturate(.8) brightness(.94);transition:filter .5s}
+  .film:hover img{filter:none}
+  .film-body{display:flex;flex-direction:column;gap:10px;min-width:0}
+  .film-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+  .film-num{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--brass)}
+  .film h3{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.4vw,34px);line-height:1.1}
+  .film h3 .yr{color:var(--ink-faint);font-weight:400;font-size:.62em;margin-left:8px}
+  .film .aka{font-family:var(--serif);font-style:italic;color:var(--ink-faint);font-size:14px}
+  .film .genre{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+  .film .roleline{font-family:var(--serif);font-style:italic;font-size:clamp(16px,2vw,19px);color:var(--ink)}
+  .film .cast{font-size:14px;color:var(--ink-soft)}
+  .film p{color:var(--ink-soft);font-size:15.5px;line-height:1.6;max-width:62ch;text-wrap:pretty}
+  .film .cap{color:var(--ink);font-weight:500}
+  .pq{border-left:1px solid var(--brass-dim);padding-left:14px;margin-top:6px}
+  .pq blockquote{font-family:var(--serif);font-style:italic;font-size:15.5px;color:var(--ink-soft);line-height:1.55;max-width:60ch}
+  .pq cite{display:block;margin-top:5px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-style:normal}
+  .pq cite a{border-bottom:1px solid var(--brass-dim)}
+  .pq cite span{color:var(--ink-faint)}
+  @media(max-width:600px){.film{grid-template-columns:1fr;gap:16px} .film img{max-width:128px}}
+  @media(min-width:880px){.film{grid-template-columns:200px 1fr;gap:clamp(28px,4vw,48px)} .film img{filter:saturate(.72) brightness(.9) sepia(.06)}}
+  .voice{margin-top:clamp(48px,7vw,80px);padding-top:clamp(36px,5vw,48px);border-top:1px solid var(--rule-strong);max-width:62ch}
+  .voice h3{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:500;margin-bottom:18px}
+  .voice p{font-size:clamp(17px,2.1vw,20px);line-height:1.6;color:var(--ink);margin-bottom:14px;text-wrap:pretty}
+  .voice p:last-child{margin-bottom:0}
+  .voice a{color:var(--brass-bright);border-bottom:1px solid var(--brass-dim)}
+  .voice a:hover{border-color:var(--brass)}
+
+  /* CONTACT */
+  .contact{border-top:1px solid var(--rule)}
+  .contact-in{display:grid;grid-template-columns:1fr;gap:34px;align-items:end}
+  .contact h2{font-family:var(--serif);font-size:clamp(30px,5vw,52px);font-weight:600;line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+  .contact .email{display:inline-block;margin-top:24px;font-family:var(--serif);font-size:clamp(20px,3vw,28px);color:var(--brass-bright);border-bottom:1px solid var(--brass-dim);padding-bottom:3px;transition:border-color .3s;word-break:break-all}
+  .contact .email:hover{border-color:var(--brass)}
+  .contact-cols{display:flex;flex-direction:column;gap:18px}
+  .contact-cols .row{display:flex;flex-direction:column;gap:3px}
+  .contact-cols .row .l{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+  .contact-cols .row .v{font-size:14.5px;color:var(--ink-soft)}
+  .contact-cols .row .v a{border-bottom:1px solid var(--brass-dim);transition:border-color .2s,color .2s}
+  .contact-cols .row .v a:hover{color:var(--brass-bright);border-color:var(--brass)}
+  @media(min-width:680px){.contact-in{grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,64px)}}
+  footer{padding:34px 0}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;
+      font-family:var(--mono);font-size:11px;letter-spacing:0;color:var(--ink-faint)}
+  .foot-in .mk{font-family:var(--serif);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .foot-in .mk a:hover{color:var(--brass)}
+
+  @media(prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none} html{scroll-behavior:auto}}
+</style>
+
+<nav>
+  <div class="nav-in">
+    <a class="nav-mark" href="/">Horizon <b>Line</b></a>
+    <div class="nav-links">
+      <a href="/#slate" class="hide-sm">The Slate</a>
+      <a href="/#work" class="hide-sm">Films</a>
+      <a href="#director">Director</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="fhero">
+  <div class="wrap fhero-in">
+    <p class="eyebrow"><a href="/#slate">Horizon Line · Upcoming</a><span>In Pre-Production</span></p>
+    <h1>Fertility</h1>
+    <p class="tag">There’s fate in blood.</p>
+    <p class="log">A successful couple needs a surrogate to have a child. The woman they choose carries an ancient bloodline that’s coming for the baby.</p>
+    <div class="meta"><span>Feature</span><span class="dot"></span><span>Gothic Horror</span><span class="dot"></span><span>Original Screenplay</span><span class="dot"></span><span>Written and Directed by Bennet De Brabandere</span></div>
+    <div class="ctas">
+      <a class="btn primary" href="#vision">Director’s Vision</a>
+      <a class="btn" href="FERTILITY-DIRECTORS-VISION.pdf">Download the Deck · PDF</a>
+      <a class="btn" href="mailto:bdb@merc3.com?subject=FERTILITY">Request the Script</a>
+    </div>
+  </div>
+  <div class="wrap"><div class="keyart"><img src="img/key-fertility.jpg" alt="Fertility key art" fetchpriority="high"></div></div>
+</header>
+<div class="horizon-echo" aria-hidden="true" style="margin-top:clamp(56px,9vw,110px)"></div>
+
+<!-- DIRECTOR'S VISION -->
+<section id="vision">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <p class="eyebrow">Director’s Vision · Twelve pages</p>
+      <h2>Birth is a Mess.</h2>
+      <p>The look, the mechanics, and the people of FERTILITY, in the director’s words. The same deck as the download, laid out for the screen.</p>
+    </div>
+
+    <div class="vblock first fade">
+      <p class="eyebrow">The Film</p>
+      <figure class="crop-tall centered" style="max-width:720px"><img src="img/scan-pregnant-crewdson.jpg" alt="" loading="lazy"><figcaption style="text-align:center">Gregory Crewdson, <em>Beneath the Roses</em>.</figcaption></figure>
+      <p class="stanza">A Husband and Wife<br>A Surrogate<br>A Child<br>A Bloodline<br><span class="em">They are coming for the baby</span></p>
+    </div>
+
+    <div class="vblock fade">
+      <p class="eyebrow">Director’s Statement</p>
+      <h3>A horror mystery born of dread and fate.</h3>
+      <p class="lead">A couple who cannot have a child are offered a surrogate. She is young, beautiful, kind, and she carries an ancient bloodline that is coming for the baby. Everything that should be safe, the best clinic, a contract, a healthy surrogate. What’s revealed is what was there the whole time, waiting for the seed to take.</p>
+      <p>A simple want, for a family of their own pushes everyone forward. That’s how the bloodline works: a woman offers herself, and by offering herself she takes everything. The surrogate carrying Roman’s child is the woman who once carried Roman. Together they will be born again. It’s impossible. And yet. There’s fate in blood.</p>
+      <p>At the centre is a man who built his whole life on the belief that he chose his path. FERTILITY is the story of Roman learning that his future was chosen before he was born. That legacy and family are already his and it requires a terrible choice. His wife Shauna refuses to see what she already knows, that what she wants more than anything has already escaped her. They wanted a child and their true desires are revealed.</p>
+      <p>This is a film in the lineage of <em>Rosemary’s Baby</em>, <em>Dead Ringers</em>, and <em>Hereditary</em>. When the house burns, the bloodline lives on.</p>
+    </div>
+
+    <div class="vblock fade">
+      <p class="eyebrow">The Clinic</p>
+      <h3>The Fertility Clinic</h3>
+      <p class="lead">This is where Roman and Shauna go to buy a future: the most legitimate room in the film, elite and immaculate and reassuring. It is also where the bloodline performs its rite. The surrogacy is real medicine and an ancient ceremony at once, and the film never lets you pull them apart. The silver instrument is for insemination and sacrament. Behind the one-way glass, conception is watched like a service. Nothing in the room says horror. All of it is.</p>
+      <figure class="crop"><img src="img/caravaggio-judith.jpg" alt="" loading="lazy"><figcaption><b>The rite the clinic is built to hide.</b> Three women, a blade, sacred violence done as close, careful work. (Caravaggio, <em>Judith Beheading Holofernes</em>.)</figcaption></figure>
+      <div class="two">
+        <figure><img src="img/dr-red-theatre.jpg" alt="" loading="lazy"><figcaption>Surgical register. (<em>Dead Ringers</em>.)</figcaption></figure>
+        <figure><img src="img/ultrasound.jpg" alt="" loading="lazy"><figcaption>See what emerges from the dark.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="vblock fade">
+      <p class="eyebrow">The Look · Palette &amp; the Uncanny</p>
+      <h3>Dread has a Cool Palette. Warmth is a Bloody Event.</h3>
+      <p class="lead">Blue-hour atmosphere, slate, silver-green, diffused grey. Warmth never washes a room. It exists only as a source you can point at. A lamp in the window. A flesh tone. A fire.</p>
+      <figure class="crop"><img src="img/crewdson-beneath-roses.jpg" alt="" loading="lazy"><figcaption><b>Gregory Crewdson, <em>Beneath the Roses</em>.</b> The palette contract in a single frame. Cool slate street, cool sky, cool brick. Count the warm sources: the amber signal, the yellow signal, the storefront bulbs. Three. That is the correct number.</figcaption></figure>
+      <div class="two flip">
+        <figure><img src="img/crewdson-cathedral-pines-1.jpg" alt="" loading="lazy"><figcaption><b>Crewdson, <em>Cathedral of the Pines</em>.</b> Nothing in the composition says horror. And yet there is dread in the arrangement.</figcaption></figure>
+        <div class="txt">
+          <h3>The uncanny is one displaced element</h3>
+          <p>Every frame is built to read correct, a country house on a perfect evening, with a single element precisely inexplicably wrong. This is the governing mechanic.</p>
+          <p class="note">Captured on 35mm film, with vintage glass, modern lighting, in-camera effects.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="vblock fade">
+      <p class="eyebrow">The Uncanny Familiar</p>
+      <div class="two">
+        <div class="txt">
+          <h3>The Familiar Turned Quietly Wrong</h3>
+          <p>The German word for the uncanny is <em>unheimlich</em>: literally unhomely, the home made strange. It is the engine of the film. A sense it’s not right. A photograph a character cannot unsee.</p>
+          <p>FERTILITY turns on a Polaroid, dated decades before it should exist, an image that proves the present was always a repetition. The horror is never announced. It is recognised, slowly, as something the audience already knew.</p>
+        </div>
+        <div>
+          <figure><img src="img/polaroid-geno.jpg" alt="" loading="lazy"><figcaption><b>The 1983 Polaroid register.</b> The pregnant body on a red sofa, shot like a snapshot found in a drawer. (Nan Goldin, <em>Geno on my sofa</em>, 1994.)</figcaption></figure>
+          <figure class="small" style="margin-top:26px"><img src="img/woodman-roma.jpg" alt="" loading="lazy"><figcaption><b>Francesca Woodman, <em>Roma</em>, 1977–78.</b> The blurred, mortal snapshot: youth dissolving into a bare room, half-here and half-gone. The texture of the film’s 1983 Polaroid.</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="vblock fade">
+      <p class="eyebrow">The Lead</p>
+      <h3>A Principled Man</h3>
+      <figure class="crop"><img src="img/scan-roman-stewart.jpg" alt="" loading="lazy"><figcaption><b>James Stewart, in Hitchcock’s cool register.</b> Sincere, self-made, certain he is choosing well. The register the role is written in.</figcaption></figure>
+      <p style="margin-top:26px">Roman is the film’s moral centre: a principled man who meets evil couched in the most genuine desire to do right, by his wife, for the family they have not been able to make. Every loving choice tightens the trap.</p>
+      <p>He is decent in the register of James Stewart: sure of his own goodness, earnest in his intentions, in his desire for a family. That is exactly what the bloodline requires. The role asks its lead to be sincere in his intentions, so that the audience goes all the way with him.</p>
+    </div>
+
+    <div class="vblock fade">
+      <p class="eyebrow">His Wife</p>
+      <div class="two mtext">
+        <figure><img src="img/shauna.jpg" alt="" loading="lazy"><figcaption>The register for Shauna: elegant, composed, determined.</figcaption></figure>
+        <div class="txt">
+          <h3>Refuses to See What She Knows</h3>
+          <p>Shauna wants two things: a baby, and her husband. She refuses to see what she already knows. Her body performs a phantom pregnancy. She reduces the unimaginable to something survivable.</p>
+          <p>Then the baby will not feed from her. Motherhood collapses at its most primal. Her instinct finally surfaces: ‘I knew it.’ She demands the truth in a lawyer’s language, and leaves. If she returns, it’s to face the fire and the truth.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="vblock fade">
+      <p class="eyebrow">The Surrogate</p>
+      <h3>Youth Beauty Fertile</h3>
+      <p class="lead">Leah is the offering: young, luminous, barefoot, chosen for a body that works. The audience can see the appeal and yet sense that something is amiss. She hums to the baby through her own skin. That is the trap, and it is laid with beauty and warmth.</p>
+      <div class="two">
+        <figure class="crop-portrait"><img src="img/leah-pregnant.jpg" alt="" loading="lazy"><figcaption>Young, blonde, carrying: beautiful before she is frightening.</figcaption></figure>
+        <figure class="crop-portrait"><img src="img/scan-surrogate-henson.jpg" alt="" loading="lazy"><figcaption><b>Bill Henson, <em>Paris Opera Project</em>.</b> The same youth, surfacing from the dark, adorned.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="vblock fade">
+      <p class="eyebrow">The Women</p>
+      <div class="two flip">
+        <figure><img src="img/scan-chani-showgirl.jpg" alt="" loading="lazy"><figcaption><b>Diane Arbus, a performer in her dressing room.</b> Exposed, enthroned, in complete command of the gaze aimed at her. The template for Chani.</figcaption></figure>
+        <div class="txt">
+          <h3>Ascension by Submission</h3>
+          <p>The women of FERTILITY hold power precisely by seeming to give themselves away. Chani, the surrogate, the mother: each rules through display, through tenderness, through the pose of service.</p>
+          <p>The men believe they are choosing. The women have already arranged the room. It is the pin-up’s oldest trick, taken seriously as a theology: the body offered is the body in command.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="vblock fade">
+      <p class="eyebrow">The Set-Pieces</p>
+      <h3>Iconic Scenes</h3>
+      <div class="pieces">
+        <div>
+          <div class="piece"><h4>01 · The insemination</h4><p>The procedure plays as a miracle and a rite at once. Hope and dread in one frame, and both are telling the truth.</p></div>
+          <div class="piece"><h4>02 · The womb, from the inside</h4><p>At the midpoint the camera goes inside the surrogate: the child present at its own making. Not a dream or diversion. The truth is gestating as well.</p></div>
+          <div class="piece"><h4>03 · The rite’s own rules, turned into a weapon</h4><p>The ceremony has one requirement it cannot proceed without. Roman is the first to understand that its rules can be used against it. He does not fight the rite. He holds it hostage.</p></div>
+          <div class="piece"><h4>04 · The mis-strike</h4><p>The coven never overpowers Roman. It seduces him. A vision of milk and mother rises at the instant the blade is raised, a small gesture planted an hour earlier fires under the spell, and the knife comes down on the wrong body. Theme turned into muscle memory.</p></div>
+          <div class="piece"><h4>05 · The revelation</h4><p>A rational man runs out of rational explanations. What’s impossible is true.</p></div>
+          <div class="piece"><h4>06 · The molt</h4><p>The house burns and the bloodline does not. In the ash an old woman’s shell splits, a new surrogate steps out into the morning.</p></div>
+        </div>
+        <div class="thumbs">
+          <figure><img src="img/golden-helmet.jpg" alt="" loading="lazy"><figcaption><b>The weight of a bloodline.</b> (Rembrandt.)</figcaption></figure>
+          <figure><img src="img/madonna-litta.jpg" alt="" loading="lazy"><figcaption><b>The mother that cannot be.</b> (Leonardo.)</figcaption></figure>
+          <figure><img src="img/burning-house.jpg" alt="" loading="lazy"><figcaption><b>The house that burns.</b></figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="vblock fade">
+      <p class="eyebrow" style="text-align:center">The Promise</p>
+      <p class="stanza" style="margin-top:18px">Birth and death, good and evil,<br>one unyielding churn.<br>It was turning long before this family.<br>It will be turning long after.<br><span class="em">Bloodlines don’t die. They shed their skin.</span></p>
+      <div class="ctas" style="justify-content:center;margin-top:34px">
+        <a class="btn" href="FERTILITY-DIRECTORS-VISION.pdf">Download the Deck · PDF · 12 pages</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE DIRECTOR -->
+<section id="director" class="director">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <p class="eyebrow">The Director · Writer / Director</p>
+      <h2>Bennet De Brabandere</h2>
+      <p>Four films. A genre all their own. FERTILITY is the fifth.</p>
+    </div>
+    <div class="dir-quote fade">
+      <blockquote>“The latest oddity from the writer-director Bennet De Brabandere, the director of the twisted evil kid horror-comedy <em>Ankle Biters</em>.”</blockquote>
+      <cite><a href="https://www.nytimes.com/2026/02/27/movies/horror-movies-streaming.html?unlocked_article_code=1.RFA.y6av.R5snUFJyfeOV&amp;smid=url-share" target="_blank" rel="noopener">The New York Times</a> <span class="ctx">· Five Horror Movies to Stream</span></cite>
+    </div>
+    <div class="plats fade"><span>Apple TV Worldwide</span><span class="dot"></span><span>German Theatrical</span><span class="dot"></span><span>Amazon Prime</span><span class="dot"></span><span>Tubi</span></div>
+
+    <div class="films">
+      <article class="film fade">
+        <img src="img/poster-raptus.jpg" alt="Raptus poster" loading="lazy">
+        <div class="film-body">
+          <div class="film-head"><span class="film-num">01</span><h3>Raptus<span class="yr">2025</span></h3></div>
+          <p class="genre">Sci-Fi Thriller / Dark Comedy · Writer / Director</p>
+          <p class="roleline">Ksenia Solo. Apple TV worldwide. The New York Times.</p>
+          <p class="cast">Ksenia Solo, Nolan Gerard Funk, Christina Cox</p>
+          <p>After a brutal assault, Sarah enters an experimental android-therapy program. Her new companion begins to blur care with control.</p>
+          <p>A film about assault, android obsession, and the violence people hide behind care. The material is dangerous and the tone never flinches. That only works when your cast commits completely. Ksenia Solo delivered a performance that demanded real trust between actor and director. Nolan Gerard Funk embodied the design perfectly.</p>
+          <p class="cap">Name cast, international distribution, and thematic ambition.</p>
+          <div class="pq"><blockquote>“Lurid and darkly funny. A delirious, uncomfortable back and forth that recalls the unearthly soapiness of Malignant.”</blockquote><cite><a href="https://www.nytimes.com/2026/02/27/movies/horror-movies-streaming.html?unlocked_article_code=1.RFA.y6av.R5snUFJyfeOV&amp;smid=url-share" target="_blank" rel="noopener">The New York Times</a> <span>· Five Horror Movies to Stream</span></cite></div>
+          <div class="pq"><blockquote>“The last 20 minutes are white-knuckle-thrilling in the best way possible.”</blockquote><cite>Film Threat <span>· 8.5/10</span></cite></div>
+          <div class="pq"><blockquote>“Solo and Funk’s performances are both excellent.”</blockquote><cite>Film Blitz</cite></div>
+        </div>
+      </article>
+      <article class="film fade">
+        <img src="img/poster-tcs.jpg" alt="The Christmas Spirit poster" loading="lazy">
+        <div class="film-body">
+          <div class="film-head"><span class="film-num">02</span><h3>The Christmas Spirit<span class="yr">2022</span></h3></div>
+          <p class="genre">Comedy / Thriller / Horror · Writer / Director / Editor</p>
+          <p class="roleline">An original take on the Christmas movie. Apple TV.</p>
+          <p class="cast">Zion Forrest Lee, Nicolas Grimes, Christian Potenza</p>
+          <p>A lone man with the Christmas Spirit trapped in his head must kidnap a teenage girl in order to save Christmas.</p>
+          <p>This is what happens when you take a Christmas movie and refuse to follow any of the usual formulas. Original story, original tone, original rules. The audience either gets it or they don’t. They got it.</p>
+          <p class="cap">Genre invention. Proof that the voice isn’t limited to one lane.</p>
+          <div class="pq"><blockquote>“The anti-Christmas story with over-the-top violent situations.”</blockquote><cite>Film Threat</cite></div>
+          <div class="pq"><blockquote>“The best Christmas horror comedy since Rare Exports. A truly original work.”</blockquote><cite>Letterboxd</cite></div>
+        </div>
+      </article>
+      <article class="film fade">
+        <img src="img/poster-cherrypicker.jpg" alt="Cherrypicker poster" loading="lazy">
+        <div class="film-body">
+          <div class="film-head"><span class="film-num">03</span><h3>Cherrypicker<span class="yr">2021</span></h3></div>
+          <p class="aka">a.k.a. Ankle Biters</p>
+          <p class="genre">Horror Comedy · Writer / Director</p>
+          <p class="roleline">Ensemble cast. Colin Mochrie. Distributed.</p>
+          <p class="cast">Colin Mochrie, Zion Forrest Lee, Marianthi Evans</p>
+          <p>A group of friends discovers that the babysitters they hired have a much darker agenda.</p>
+          <p>The leap from solo filmmaker to ensemble director. Colin Mochrie required a director who could hold comedic timing and horror tension in the same scene. Comedy earns trust. Horror spends it. Audiences loved it.</p>
+          <p class="cap">Ensemble direction, tone control across genres, commercial distribution.</p>
+          <div class="pq"><blockquote>“A pitch black comedy with serious consequences. I love the way this film really has a no fucks given attitude.”</blockquote><cite>MLMillerWrites</cite></div>
+        </div>
+      </article>
+      <article class="film fade">
+        <img src="img/poster-salvation.jpg" alt="Salvation poster" loading="lazy">
+        <div class="film-body">
+          <div class="film-head"><span class="film-num">04</span><h3>Salvation<span class="yr">2019</span></h3></div>
+          <p class="genre">Thriller · Writer / Director / DP / Editor / Production Designer</p>
+          <p class="roleline">Wrote. Directed. Shot. Edited. Designed.</p>
+          <p class="cast">Julian Richings, Zion Forrest Lee</p>
+          <p>An apocalypse survivor in search of his lost daughter is drawn into a deadly creation myth.</p>
+          <p>Punk rock filmmaking. Made with a crew of director, soundman, and actors. Shot in Detroit, Canada, and Iraq where footage of a naked man climbing a ziggurat was smuggled out of a warzone under threat of a ten year prison sentence. A demonstration of fearless storytelling and flat out commitment. Winner: Best Film, Best Cinematography, Best Production Design, Hollywood North Film Awards.</p>
+          <p class="cap">Total creative self-sufficiency. Can build a film from nothing.</p>
+          <div class="pq"><blockquote>“Excellent film!”</blockquote><cite>Bruce La Bruce</cite></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="voice fade">
+      <h3>In His Own Words</h3>
+      <p>A good director can create his own genre. That’s what I’ve done.</p>
+      <p>Salvation was made with no crew and no budget in Detroit, Canada, and Iraq. Cherrypicker put Colin Mochrie in a horror comedy where the kids are the monsters. The Christmas Spirit turned Christmas into something nobody had seen before. Raptus put Ksenia Solo opposite an android on Apple TV worldwide and got named by The New York Times.</p>
+      <p>Four films. A genre all their own.</p>
+      <p>FERTILITY is next. Intelligent. Monstrous. Wide audience potential. Cast-ready script.</p>
+      <p>Interested? <a href="mailto:bdb@merc3.com?subject=FERTILITY">Let’s talk</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap contact-in">
+    <div class="fade">
+      <p class="eyebrow">Contact</p>
+      <h2 style="margin-top:14px">Request the script.<br>Take the meeting.</h2>
+      <a class="email" href="mailto:bdb@merc3.com?subject=FERTILITY">bdb@merc3.com</a>
+    </div>
+    <div class="contact-cols fade">
+      <div class="row"><span class="l">Script requests &amp; meetings</span><span class="v"><a href="mailto:bdb@merc3.com?subject=FERTILITY">bdb@merc3.com</a></span></div>
+      <div class="row"><span class="l">Press &amp; media</span><span class="v"><a href="mailto:press@horizonlinefilms.com">press@horizonlinefilms.com</a></span></div>
+      <div class="row"><span class="l">Director</span><span class="v"><a href="https://www.imdb.com/name/nm3185193/" target="_blank" rel="noopener">IMDb</a></span></div>
+      <div class="row"><span class="l">Company</span><span class="v"><a href="/">Horizon Line Film Company</a> · Toronto, Canada</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="horizon-echo" aria-hidden="true"></div>
+<footer>
+  <div class="wrap foot-in">
+    <span class="mk"><a href="/">Horizon Line Film Company</a></span>
+    <span>Canada</span>
+    <span>© 2026 Horizon Line Film Company</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var fades=[].slice.call(document.querySelectorAll('.fade'));
+    if(!('IntersectionObserver' in window)){ fades.forEach(function(el){el.classList.add('in')}); return; }
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:0,rootMargin:'0px 0px -6% 0px'});
+    fades.forEach(function(el){io.observe(el)});
+  })();
+</script>

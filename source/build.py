@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Regenerate ../index.html from hlf-home.tmpl.html, inlining web/*.jpg as base64 data URIs.
-Usage: python3 build.py   (run from the source/ dir). Then commit index.html and push -> GitHub Pages."""
+Usage: python3 build.py   (run from the source/ dir). Also emits ../fertility/ (index.html + img/ + deck pdf). Then commit and deploy with wrangler (see README)."""
 import base64, pathlib
 here = pathlib.Path(__file__).resolve().parent
 web = here / "web"
@@ -21,3 +21,12 @@ for k, f in M.items():
 out = here.parent / "index.html"
 out.write_text(t)
 print("wrote", out, out.stat().st_size // 1024, "KB")
+
+# ---- /fertility (second page; images shipped as files, not inlined — mobile weight) ----
+import shutil
+fdir = here.parent / "fertility"; (fdir / "img").mkdir(parents=True, exist_ok=True)
+(fdir / "index.html").write_text((here / "fertility.tmpl.html").read_text())
+for f in (here / "fertility-img").glob("*.jpg"):
+    shutil.copy2(f, fdir / "img" / f.name)
+shutil.copy2(here / "fertility-pdf" / "FERTILITY-DIRECTORS-VISION.pdf", fdir / "FERTILITY-DIRECTORS-VISION.pdf")
+print("wrote", fdir / "index.html", (fdir / "index.html").stat().st_size // 1024, "KB;", len(list((fdir / "img").glob("*.jpg"))), "images; deck pdf")
