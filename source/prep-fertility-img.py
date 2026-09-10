@@ -22,7 +22,7 @@ for n in ["poster-raptus","poster-tcs","poster-cherrypicker","poster-salvation"]
     shutil.copy2(here / "web" / f"{n}.jpg", out / f"{n}.jpg")
 # key art ships under a versioned name so browser/edge caches (max-age 14400) miss when it changes
 for stale in out.glob("key-fertility*.jpg"): stale.unlink()
-shutil.copy2(here / "web" / "key-fertility.jpg", out / "key-fertility-v5.jpg")
+shutil.copy2(here / "web" / "key-fertility.jpg", out / "key-fertility-v6.jpg")
 # deck source copies live in fertility-pdf/ (original + band-redacted); never overwrite them from here — the PDF is not shipped
 tot = sum(p.stat().st_size for p in out.glob("*.jpg"))
 print(f"{len(list(out.glob('*.jpg')))} images, {tot//1024} KB total")
