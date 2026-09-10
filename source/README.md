@@ -6,7 +6,7 @@
 1. Edit `source/hlf-home.tmpl.html` (the ONLY file you hand-edit; it uses image tokens like `__KA_QUEEN__` — full token→file map lives in `source/build.py`).
 2. `cd source && python3 build.py` → regenerates `../index.html` with images inlined.
 3. Commit `index.html` + `source/hlf-home.tmpl.html` together (`SKIP_SECRET_GATE=1`, see Gotchas) and push, then deploy:
-   `D=$(mktemp -d); cp index.html og-card.png favicon.png $D/; set -a; . ~/.claude/credentials.env; set +a; wrangler pages deploy $D --project-name horizonline --branch main --commit-dirty=true` (token is Pages-scoped; never `rm -rf` in the chain — the destructive-guard hook blocks the whole command).
+   `D=$(mktemp -d); cp index.html og-card.png favicon.png _redirects $D/ && cp -R fertility $D/; set -a; . ~/.claude/credentials.env; set +a; wrangler pages deploy $D --project-name horizonline --branch main --commit-dirty=true` (token is Pages-scoped; never `rm -rf` in the chain — the destructive-guard hook blocks the whole command).
 4. Verify live with a cache-buster (`?v=<anything>`): Pages serves `max-age=600`, so a plain reload can show the stale build for up to 10 min.
 
 ### Gotchas (all learned the hard way)
@@ -36,7 +36,16 @@ The hero enacts a sunrise; every piece below was a deliberate Bennet decision �
 - `--ink-faint` is AA-tuned (#8a8375 ≈ 5.26:1 on the ground) — don't darken it back.
 - Body copy uses typographic quotes/apostrophes (’ “ ”); keep it that way in new copy.
 
+## /fertility — second page (added 2026-09-10)
+- **Template:** `source/fertility.tmpl.html` (hand-edit, same tokens/nav/footer as the home template; nav links point back to `/#slate` and `/#work`). `python3 build.py` also emits `../fertility/index.html`.
+- **Images are NOT inlined** on this page (mobile weight): they ship as files, `source/fertility-img/` → `fertility/img/`. `source/prep-fertility-img.py` regenerates `fertility-img/` from the deck assets in `~/Documents/FERTILITY/look-design/_deck-assets` (≤1400px, q78; crops the stock-watermark band off `leah-pregnant.jpg`) and copies the four posters + key art from `web/`. Run it only when a source image changes.
+- **Deck:** `source/fertility-pdf/FERTILITY-DIRECTORS-VISION.pdf` → `fertility/FERTILITY-DIRECTORS-VISION.pdf`. md5 `2a041427…` = the Aug-18 "A Bloodline" master Bennet confirmed on 2026-09-10. The page text is that deck's copy, ported verbatim.
+- **`_redirects`** (repo root, ships in the bundle): `/director /fertility 301` — the pitch package's old director link.
+- **Public-page rules (Bennet, 2026-09-10):** public, no money facts — no budget, no "50% financed", no financing package, no acquisition-target list, no corporation numbers (Horizon Line is a banner; the producing entity is MERC_4 and belongs on paper, not the site). Status reads "In Pre-Production".
+- **Open HITL (see the 2026-09-10 fertility design review):** the Leah reference is a watermarked stock comp (license or replace); reference photographs by living/estate photographers are now publicly hosted; nudity in the Woodman/Arbus references on the company domain; the slate card chip still says "Apr 2027".
+
 ## Review-gate state
+**2026-09-10 (/fertility)** `/design-review` Mode B on the new page: **PASS** after a mobile round (nav wrap, orphaned meta dots, ragged CTAs, 28ch film measure, image-before-heading on flipped blocks, watermark band). Stage-0 FLAGS only (3 faces, 6 levels, 41ch at 390). Artifact: `DESIGN-REVIEW-horizonline-fertility-page-2026-09-10.md` in the WEBSITE-REVIEW folder.
 **2026-09-10** `/design-review` Mode B on the live public site after the warm-sun change: **REVISE → PASS (re-gated)**. Findings fixed: letterspaced lowercase (`.slate-count` → tracked caps, footer tracking 0), reduced-motion parity for the reflection glow, hero-stats separator hidden when the stats wrap (≤600px), favicon + OG card regenerated warm. Decision: the horizon rule stays brass — the sun's 26px orange glow already ties line and sun at the contact point; warming the rule would add a second focal point. Artifact: `DESIGN-REVIEW-horizonline-warm-sun-2026-09-10.md` in the WEBSITE-REVIEW folder below. Gotcha: headless Chrome enforces a ~500px minimum window, so `--window-size=390,…` lays out at 500 and crops — use Playwright for sub-500px renders.
 
 ### 2026-07-28
