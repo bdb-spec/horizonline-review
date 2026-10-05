@@ -96,6 +96,10 @@
   figure.crop-portrait img{aspect-ratio:3/4;object-fit:cover}
   figcaption{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink-soft);line-height:1.55;margin-top:10px;max-width:var(--text)}
   figcaption b{font-style:normal;font-weight:600;color:var(--ink)}
+  .onesheet{margin:clamp(28px,4vw,44px) 0 0;max-width:380px}
+  .onesheet img{width:100%;height:auto;display:block;border:1px solid var(--rule)}
+  .onesheet figcaption{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);line-height:1.7}
+  .onesheet figcaption a{color:var(--brass)}
   .two{display:grid;grid-template-columns:1fr;gap:26px;margin-top:26px}
   .two figure{margin:0}
   .two .txt h3{margin-top:0}
@@ -424,6 +428,21 @@
       <p>Four films. A genre all their own.</p>
       <p>FERTILITY is next. In pre-production.</p>
     </div>
+  </div>
+</section>
+
+<!-- ONE-SHEET -->
+<section id="onesheet">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <p class="eyebrow">One-Sheet</p>
+      <h2>There’s fate in blood.</h2>
+      <p>The teaser one-sheet, in the title treatment from the director’s vision deck.</p>
+    </div>
+    <figure class="onesheet fade">
+      <a href="img/poster-fertility-v1-print.jpg" target="_blank" rel="noopener"><img src="img/poster-fertility-v1.jpg" alt="Fertility teaser one-sheet" loading="lazy" width="1000" height="1500"></a>
+      <figcaption>Teaser one-sheet · <a href="img/poster-fertility-v1-print.jpg" download="FERTILITY-one-sheet.jpg">Download 2000 × 3000</a></figcaption>
+    </figure>
   </div>
 </section>
 
