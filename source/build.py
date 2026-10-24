@@ -33,3 +33,6 @@ for f in (here / "fertility-img").glob("*.jpg"):
 # deck PDF deliberately NOT shipped (Bennet 2026-09-10: the page is a coming-soon production page, not a pitch); source stays in fertility-pdf/
 for stale in fdir.glob("*.pdf"): stale.unlink()
 print("wrote", fdir / "index.html", (fdir / "index.html").stat().st_size // 1024, "KB;", len(list((fdir / "img").glob("*.jpg"))), "images; no pdf")
+
+# ---- /director (Bennet 2026-10-24): assembled from the fertility template's director section ----
+import runpy; runpy.run_path(str(here / 'build_director.py'))
